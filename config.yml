@@ -1,0 +1,3 @@
+sbx_classify:
+  kraken_db_fp: ''
+  threads: 4
