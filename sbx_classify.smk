@@ -14,11 +14,12 @@ rule kraken2_classify_report:
     output:
         raw = CLASSIFY_FP/'kraken'/'raw'/'{sample}-raw.tsv',
         report = CLASSIFY_FP/'kraken'/'{sample}-taxa.tsv'
+    benchmark:
+        BENCHMARK_FP / "kraken2_classify_report_{sample}.tsv"
     params:
         db = Cfg['sbx_classify']['kraken_db_fp'],
         paired_end = "--paired" if Cfg['all']['paired_end'] else ""
-    threads:
-        Cfg['sbx_classify']['threads']
+    threads: 8
     shell:
         """
         kraken2 --gzip-compressed \
@@ -32,10 +33,12 @@ rule kraken2_biom:
     input:
         expand(CLASSIFY_FP/'kraken'/'{sample}-taxa.tsv',
                sample=Samples.keys())
-    conda:
-        "sbx_classify.yml"
     output:
         CLASSIFY_FP/'kraken'/'all_samples.biom'
+    benchmark:
+        BENCHMARK_FP / "kraken2_biom.tsv"
+    conda:
+        "sbx_classify.yml"
     shell:
         """
         kraken-biom --max D -o {output} {input}
@@ -46,6 +49,8 @@ rule classic_k2_biom:
         CLASSIFY_FP/'kraken'/'all_samples.biom'
     output:
         CLASSIFY_FP/'kraken'/'all_samples.tsv'
+    benchmark:
+        BENCHMARK_FP / "classic_k2_biom.tsv"
     conda:
         "sbx_classify.yml"
     shell:
