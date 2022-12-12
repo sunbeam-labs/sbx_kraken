@@ -17,8 +17,7 @@ class FullRunTests(unittest.TestCase):
         tar.extractall(path=self.db_fp)
         tar.close()
 
-        self.reads_fp = os.path.join(self.temp_dir, "reads/")
-        shutil.copytree(".tests/data/reads/", self.reads_fp)
+        self.reads_fp = ".tests/data/reads/"
 
         self.project_dir = os.path.join(self.temp_dir, "project/")
 
@@ -44,7 +43,7 @@ class FullRunTests(unittest.TestCase):
         self.output_fp = os.path.join(self.project_dir, "sunbeam_output")
         #shutil.copytree(".tests/data/sunbeam_output", self.output_fp)
 
-        self.all_ptr_fp = os.path.join(self.output_fp, "mapping/demic/DEMIC_OUT/all_PTR.txt")
+        self.all_samples_fp = os.path.join(self.output_fp, "classify/kraken/all_samples.tsv")
     
     def tearDown(self):
         shutil.rmtree(self.temp_dir)
@@ -54,15 +53,15 @@ class FullRunTests(unittest.TestCase):
         sp.check_output([
             "sunbeam",
             "run",
-             "--configfile", 
-            self.config_fp,
-            "all_demic",
+             "--profile", 
+            self.project_dir,
+            "all_classify",
             "--directory",
             self.temp_dir,
         ])
 
         # Check output
-        self.assertTrue(os.path.exists(self.all_ptr_fp))
+        self.assertTrue(os.path.exists(self.all_samples_fp))
         with open(self.all_ptr_fp) as f:
             self.assertEqual(next(f), "\tTEST0\tTEST1\tTEST2\tTEST3\tTEST4\n")
             for val in next(f).split("\t")[1:]:
