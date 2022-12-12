@@ -30,16 +30,16 @@ class FullRunTests(unittest.TestCase):
             self.project_dir
         ])
 
+        self.config_fp = os.path.join(self.project_dir, "sunbeam_config.yml")
+
         sp.check_output([
             "sunbeam",
             "config",
             "modify",
             "-i",
-            "-f", f"{os.path.join(self.project_dir, 'sunbeam_config.yml')}"
-            "-s", f"'sbx_classify: {{kraken_db_fp: {self.db_fp}}}'"
+            "-f", f"{self.config_fp}"
+            "-s", f"'sbx_kraken: {{kraken_db_fp: {self.db_fp}}}'"
         ])
-
-        self.config_fp = os.path.join(self.project_dir, "sunbeam_config.yml")
 
         self.output_fp = os.path.join(self.project_dir, "sunbeam_output")
         #shutil.copytree(".tests/data/sunbeam_output", self.output_fp)

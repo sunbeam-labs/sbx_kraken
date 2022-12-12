@@ -17,7 +17,7 @@ rule kraken2_classify_report:
     benchmark:
         BENCHMARK_FP / "kraken2_classify_report_{sample}.tsv"
     params:
-        db = Cfg['sbx_classify']['kraken_db_fp'],
+        db = Cfg['sbx_kraken']['kraken_db_fp'],
         paired_end = "--paired" if Cfg['all']['paired_end'] else ""
     threads: 8
     shell:
