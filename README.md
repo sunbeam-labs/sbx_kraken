@@ -1,2 +1,2 @@
-# sbx_classify
+# sbx_kraken
 
