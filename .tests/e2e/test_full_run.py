@@ -32,6 +32,8 @@ class FullRunTests(unittest.TestCase):
 
         self.config_fp = os.path.join(self.project_dir, "sunbeam_config.yml")
 
+        config_str = f"sbx_kraken: {{kraken_db_fp: {self.db_fp}}}"
+
         sp.check_output(
             [
                 "sunbeam",
@@ -39,7 +41,7 @@ class FullRunTests(unittest.TestCase):
                 "modify",
                 "-i",
                 "-s",
-                f"'sbx_kraken: {{kraken_db_fp: {self.db_fp}}}'",
+                f"{config_str}",
                 f"{self.config_fp}",
             ]
         )
