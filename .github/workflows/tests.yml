@@ -22,6 +22,6 @@ jobs:
       - name: Test with Sunbeam
         uses: sunbeam-labs/sbx_test_action@v0
         with:
-          sunbeam-version: 'dev'
+          sunbeam-version: '316-consider-moving-pipeline-components-to-extensions'
           extension-name: 'sunbeam-labs/sbx_kraken'
           extension-branch-name: ${{ github.head_ref }}
