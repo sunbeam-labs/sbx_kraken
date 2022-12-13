@@ -39,7 +39,8 @@ class FullRunTests(unittest.TestCase):
                 "modify",
                 "-i",
                 "-f",
-                f"{self.config_fp}" "-s",
+                f"{self.config_fp}",
+                "-s",
                 f"'sbx_kraken: {{kraken_db_fp: {self.db_fp}}}'",
             ]
         )
