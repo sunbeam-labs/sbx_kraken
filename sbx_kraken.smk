@@ -40,7 +40,7 @@ rule kraken2_biom:
     benchmark:
         BENCHMARK_FP / "kraken2_biom.tsv"
     conda:
-        "sbx_classify.yml"
+        "sbx_kraken.yml"
     shell:
         """
         kraken-biom --max D -o {output} {input}
@@ -55,7 +55,7 @@ rule classic_k2_biom:
     benchmark:
         BENCHMARK_FP / "classic_k2_biom.tsv"
     conda:
-        "sbx_classify.yml"
+        "sbx_kraken.yml"
     shell:
         """
         biom convert -i {input} -o {output} \
