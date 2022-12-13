@@ -18,7 +18,7 @@ class FullRunTests(unittest.TestCase):
             "https://genome-idx.s3.amazonaws.com/kraken/k2_viral_20220908.tar.gz"
         )
         wget.download(viral_db_url, out=self.db_fp)
-        tar = tarfile.open(self.db_fp, "r:gz")
+        tar = tarfile.open(os.path.join(self.db_fp, "k2_viral_20220908.tar.gz"), "r:gz")
         tar.extractall(path=self.db_fp)
         tar.close()
 
