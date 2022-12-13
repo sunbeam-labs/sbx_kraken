@@ -12,6 +12,8 @@ class FullRunTests(unittest.TestCase):
         self.temp_dir = tempfile.mkdtemp()
 
         self.db_fp = os.path.join(self.temp_dir, "viral-db/")
+        if not os.path.exists(self.db_fp):
+            os.makedirs(self.db_fp)
         viral_db_url = (
             "https://genome-idx.s3.amazonaws.com/kraken/k2_viral_20220908.tar.gz"
         )
