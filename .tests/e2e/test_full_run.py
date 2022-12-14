@@ -60,4 +60,3 @@ class FullRunTests(unittest.TestCase):
 
         # Check output
         self.assertTrue(os.path.exists(self.all_samples_fp))
-
