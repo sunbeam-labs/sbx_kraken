@@ -1,28 +1,16 @@
 import os
 import shutil
 import subprocess as sp
-import tarfile
 import tempfile
 import unittest
-import wget
 
 
 class FullRunTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp_dir = tempfile.mkdtemp()
 
-        self.db_fp = os.path.join(self.temp_dir, "viral-db/")
-        if not os.path.exists(self.db_fp):
-            os.makedirs(self.db_fp)
-        viral_db_url = (
-            "https://genome-idx.s3.amazonaws.com/kraken/k2_viral_20220908.tar.gz"
-        )
-        wget.download(viral_db_url, out=self.db_fp)
-        tar = tarfile.open(os.path.join(self.db_fp, "k2_viral_20220908.tar.gz"), "r:gz")
-        tar.extractall(path=self.db_fp)
-        tar.close()
-
-        self.reads_fp = ".tests/data/reads/"
+        self.reads_fp = os.path.abspath(".tests/data/reads/")
+        self.db_fp = os.path.abspath(".tests/data/db/")
 
         self.project_dir = os.path.join(self.temp_dir, "project/")
 
