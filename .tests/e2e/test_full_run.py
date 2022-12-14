@@ -61,9 +61,11 @@ class FullRunTests(unittest.TestCase):
         # Check output
         self.assertTrue(os.path.exists(self.all_samples_fp))
         import sys
+        sys.stderr("HERE")
+        print("THERE")
         with open(self.all_samples_fp) as f:
             lines = f.readlines()
-        sys.stderr(f"{len(lines)}")
-        sys.stderr(f"{lines[0]}\n{lines[1]}\n{lines[2]}")
+            sys.stderr(f"{len(lines)}")
+            sys.stderr(f"{lines[0]}\n{lines[1]}\n{lines[2]}")
         self.assertTrue(False)
 
