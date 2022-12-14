@@ -60,7 +60,9 @@ class FullRunTests(unittest.TestCase):
 
         # Check output
         self.assertTrue(os.path.exists(self.all_samples_fp))
-        with open(self.all_ptr_fp) as f:
-            self.assertEqual(next(f), "\tTEST0\tTEST1\tTEST2\tTEST3\tTEST4\n")
-            for val in next(f).split("\t")[1:]:
-                self.assertEqual(round(float(val)), 3)
+        os.system(f"head -n 100 {self.all_samples_fp}")
+        import sys
+        with open(self.all_samples_fp, 'w') as f:
+            sys.stderr(f"{len(f.readlines())}")
+        self.assertTrue(False)
+
