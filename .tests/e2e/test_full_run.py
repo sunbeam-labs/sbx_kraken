@@ -1,62 +1,83 @@
+import csv
 import os
+import pytest
 import shutil
 import subprocess as sp
 import tempfile
-import unittest
 
 
-class FullRunTests(unittest.TestCase):
-    def setUp(self) -> None:
-        self.temp_dir = tempfile.mkdtemp()
+@pytest.fixture
+def setup():
+    temp_dir = tempfile.mkdtemp()
 
-        self.reads_fp = os.path.abspath(".tests/data/reads/")
-        self.db_fp = os.path.abspath(".tests/data/db/")
+    reads_fp = os.path.abspath(".tests/data/reads/")
+    db_fp = os.path.abspath(".tests/data/db/")
 
-        self.project_dir = os.path.join(self.temp_dir, "project/")
+    project_dir = os.path.join(temp_dir, "project/")
 
-        sp.check_output(
-            ["sunbeam", "init", "--data_fp", self.reads_fp, self.project_dir]
-        )
+    sp.check_output(
+        ["sunbeam", "init", "--data_fp", reads_fp, project_dir]
+    )
 
-        self.config_fp = os.path.join(self.project_dir, "sunbeam_config.yml")
+    config_fp = os.path.join(project_dir, "sunbeam_config.yml")
 
-        config_str = f"sbx_kraken: {{kraken_db_fp: {self.db_fp}}}"
+    config_str = f"sbx_kraken: {{kraken_db_fp: {db_fp}}}"
 
-        sp.check_output(
-            [
-                "sunbeam",
-                "config",
-                "modify",
-                "-i",
-                "-s",
-                f"{config_str}",
-                f"{self.config_fp}",
-            ]
-        )
+    sp.check_output(
+        [
+            "sunbeam",
+            "config",
+            "modify",
+            "-i",
+            "-s",
+            f"{config_str}",
+            f"{config_fp}",
+        ]
+    )
 
-        self.output_fp = os.path.join(self.project_dir, "sunbeam_output")
-        # shutil.copytree(".tests/data/sunbeam_output", self.output_fp)
+    yield project_dir, temp_dir
 
-        self.all_samples_fp = os.path.join(
-            self.output_fp, "classify/kraken/all_samples.tsv"
-        )
+    shutil.rmtree(temp_dir)
 
-    def tearDown(self):
-        shutil.rmtree(self.temp_dir)
+@pytest.fixture
+def run_sunbeam(setup):
+    temp_dir, project_dir = setup
 
-    def test_full_run(self):
-        # Run the test job.
-        sp.check_output(
-            [
-                "sunbeam",
-                "run",
-                "--profile",
-                self.project_dir,
-                "all_classify",
-                "--directory",
-                self.temp_dir,
-            ]
-        )
+    # Run the test job.
+    sp.check_output(
+        [
+            "sunbeam",
+            "run",
+            "--profile",
+            project_dir,
+            "all_classify",
+            "--directory",
+            temp_dir,
+        ]
+    )
 
-        # Check output
-        self.assertTrue(os.path.exists(self.all_samples_fp))
+    output_fp = os.path.join(project_dir, "sunbeam_output")
+
+    all_samples_fp = os.path.join(
+        output_fp, "classify/kraken/all_samples.tsv"
+    )
+
+    benchmarks_fp = os.path.join(project_dir, "stats/")
+
+    yield all_samples_fp, benchmarks_fp
+
+def test_full_run(run_sunbeam):
+    all_samples_fp, benchmarks_fp = run_sunbeam
+
+    # Check output
+    assert os.path.exists(all_samples_fp)
+
+def test_benchmarks(run_sunbeam):
+    all_samples_fp, benchmarks_fp = run_sunbeam
+
+    filename = os.listdir(benchmarks_fp)[0]
+    with open(os.path.join(benchmarks_fp, filename)) as f:
+        rd = csv.DictReader(f, delimiter="\t")
+        for r in rd:
+            assert r == 0
+            # assert float(r["cpu_time"]) < 0.0
