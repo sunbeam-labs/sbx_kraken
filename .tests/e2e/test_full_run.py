@@ -78,6 +78,11 @@ def test_benchmarks(run_sunbeam):
     with open(os.path.join(benchmarks_fp, filename)) as f:
         rd = csv.DictReader(f, delimiter="\t")
         for r in rd:
-            assert (
-                float(r["cpu_time"]) < 0.5
-            ), f"cpu_time for {r['rule']} is higher than 0.5: {r['cpu_time']}"
+            if r["rule"] == "classic_k2_biom":
+                assert (
+                    float(r["cpu_time"]) < 1
+                ), f"cpu_time for {r['rule']} is higher than 1: {r['cpu_time']}"
+            else:
+                assert (
+                    float(r["cpu_time"]) < 0.5
+                ), f"cpu_time for {r['rule']} is higher than 0.5: {r['cpu_time']}"
