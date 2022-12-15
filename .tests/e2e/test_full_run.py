@@ -35,7 +35,7 @@ def setup():
         ]
     )
 
-    yield project_dir, temp_dir
+    yield temp_dir, project_dir
 
     shutil.rmtree(temp_dir)
 
