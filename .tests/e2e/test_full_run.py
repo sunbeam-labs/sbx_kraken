@@ -6,7 +6,7 @@ import subprocess as sp
 import tempfile
 
 
-@pytest.fixture()
+@pytest.fixture
 def dir(pytestconfig):
     return pytestconfig.getoption("dir")
 
