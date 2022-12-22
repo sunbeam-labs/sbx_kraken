@@ -39,8 +39,6 @@ def setup(dir):
 
     yield temp_dir, project_dir
 
-    shutil.rmtree(temp_dir)
-
 
 @pytest.fixture
 def run_sunbeam(setup):
