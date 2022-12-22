@@ -11,7 +11,7 @@ def dir(pytestconfig):
     return pytestconfig.getoption("dir")
 
 @pytest.fixture
-def setup():
+def setup(dir):
     temp_dir = dir if dir else tempfile.mkdtemp()
 
     reads_fp = os.path.abspath(".tests/data/reads/")
