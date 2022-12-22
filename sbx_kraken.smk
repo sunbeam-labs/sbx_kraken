@@ -5,6 +5,16 @@
 TARGET_CLASSIFY = [CLASSIFY_FP / "kraken" / "all_samples.tsv"]
 
 
+try:
+    BENCHMARK_FP
+except NameError:
+    BENCHMARK_FP = output_subdir(Cfg, "benchmarks")
+try:
+    LOG_FP
+except NameError:
+    LOG_FP = output_subdir(Cfg, "logs")
+
+
 rule all_classify:
     input:
         TARGET_CLASSIFY,
