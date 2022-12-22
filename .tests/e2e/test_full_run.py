@@ -6,9 +6,13 @@ import subprocess as sp
 import tempfile
 
 
+@pytest.fixture()
+def dir(pytestconfig):
+    return pytestconfig.getoption("dir")
+
 @pytest.fixture
 def setup():
-    temp_dir = tempfile.mkdtemp()
+    temp_dir = dir if dir else tempfile.mkdtemp()
 
     reads_fp = os.path.abspath(".tests/data/reads/")
     db_fp = os.path.abspath(".tests/data/db/")
