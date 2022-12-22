@@ -10,6 +10,7 @@ import tempfile
 def dir(pytestconfig):
     return pytestconfig.getoption("dir")
 
+
 @pytest.fixture
 def setup(dir):
     temp_dir = dir if dir else tempfile.mkdtemp()
@@ -71,20 +72,3 @@ def test_full_run(run_sunbeam):
 
     # Check output
     assert os.path.exists(all_samples_fp)
-
-
-def test_benchmarks(run_sunbeam):
-    all_samples_fp, benchmarks_fp = run_sunbeam
-
-    filename = os.listdir(benchmarks_fp)[0]
-    with open(os.path.join(benchmarks_fp, filename)) as f:
-        rd = csv.DictReader(f, delimiter="\t")
-        for r in rd:
-            if r["rule"] in ["classic_k2_biom", "kraken2_biom"]:
-                assert (
-                    float(r["cpu_time"]) < 1
-                ), f"cpu_time for {r['rule']} is higher than 1: {r['cpu_time']}"
-            else:
-                assert (
-                    float(r["cpu_time"]) < 0.5
-                ), f"cpu_time for {r['rule']} is higher than 0.5: {r['cpu_time']}"
