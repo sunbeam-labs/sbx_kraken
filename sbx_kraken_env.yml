@@ -3,6 +3,6 @@ channels:
   - anaconda
   - conda-forge
 dependencies:
-  - biom-format
+  - scikit-bio
   - kraken-biom
   - pathlib # Somehow kraken-biom was complaining about not having this
