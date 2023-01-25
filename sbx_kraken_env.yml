@@ -5,5 +5,3 @@ channels:
 dependencies:
   - conda-forge::biom-format
   - kraken-biom
-  - libgfortran-ng=7.2.0 # kraken-biom https://github.com/gammapy/gammapy/issues/1417
-  - python>=3 # biom-format
