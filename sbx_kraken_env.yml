@@ -5,3 +5,4 @@ channels:
 dependencies:
   - biom-format
   - kraken-biom
+  - pathlib # Somehow kraken-biom was complaining about not having this
