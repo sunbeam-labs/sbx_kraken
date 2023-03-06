@@ -1,0 +1,8 @@
+name: sbx_kraken_biom
+channels:
+  - bioconda
+  - anaconda
+  - conda-forge
+dependencies:
+  - conda-forge::biom-format
+  - kraken-biom

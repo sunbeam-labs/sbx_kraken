@@ -55,7 +55,7 @@ rule kraken2_biom:
     log:
         LOG_FP / "kraken2_biom.log",
     conda:
-        "sbx_kraken_env.yml"
+        "sbx_kraken_biom_env.yml"
     shell:
         """
         kraken-biom --max D -o {output} {input} 2>&1 | tee {log}
@@ -72,7 +72,7 @@ rule classic_k2_biom:
     log:
         LOG_FP / "classic_k2_biom.log",
     conda:
-        "sbx_kraken_env.yml"
+        "sbx_kraken_biom_env.yml"
     # script:
     #    "biom_to_tsv.py"
     shell:
