@@ -11,6 +11,7 @@ def setup():
     temp_dir = tempfile.mkdtemp()
 
     reads_fp = os.path.abspath(".tests/data/reads/")
+    hosts_fp = os.path.abspath(".tests/data/hosts/")
     db_fp = os.path.abspath(".tests/data/db/")
 
     project_dir = os.path.join(temp_dir, "project/")
@@ -20,7 +21,19 @@ def setup():
     config_fp = os.path.join(project_dir, "sunbeam_config.yml")
 
     config_str = f"sbx_kraken: {{kraken_db_fp: {db_fp}}}"
+    sp.check_output(
+        [
+            "sunbeam",
+            "config",
+            "modify",
+            "-i",
+            "-s",
+            f"{config_str}",
+            f"{config_fp}",
+        ]
+    )
 
+    config_str = f"qc: {{host_fp: {hosts_fp}}}"
     sp.check_output(
         [
             "sunbeam",
