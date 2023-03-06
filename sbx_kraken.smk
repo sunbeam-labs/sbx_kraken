@@ -73,12 +73,12 @@ rule classic_k2_biom:
         LOG_FP / "classic_k2_biom.log",
     conda:
         "sbx_kraken_env.yml"
-    script:
-        "biom_to_tsv.py"
-    #shell:
-    #    """
-    #    biom convert -i {input} -o {output} \
-    #    --to-tsv --header-key=taxonomy --process-obs-metadata=taxonomy \
-    #    --output-metadata-id="Consensus Lineage" \
-    #    2>&1 | tee {log}
-    #    """
+    #script:
+    #    "biom_to_tsv.py"
+    shell:
+        """
+        biom convert -i {input} -o {output} \
+        --to-tsv --header-key=taxonomy --process-obs-metadata=taxonomy \
+        --output-metadata-id="Consensus Lineage" \
+        2>&1 | tee {log}
+        """

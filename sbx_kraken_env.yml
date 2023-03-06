@@ -1,8 +1,9 @@
+name: sbx_kraken
 channels:
   - bioconda
   - anaconda
   - conda-forge
 dependencies:
-  - scikit-bio
+  - conda-forge::biom-format
+  - kraken2
   - kraken-biom
-  - pathlib # Somehow kraken-biom was complaining about not having this
