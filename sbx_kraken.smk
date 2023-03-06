@@ -73,7 +73,7 @@ rule classic_k2_biom:
         LOG_FP / "classic_k2_biom.log",
     conda:
         "sbx_kraken_env.yml"
-    #script:
+    # script:
     #    "biom_to_tsv.py"
     shell:
         """
