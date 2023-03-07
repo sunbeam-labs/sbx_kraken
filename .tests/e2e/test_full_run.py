@@ -92,3 +92,11 @@ def test_full_run(run_sunbeam):
 
     # Check output
     assert os.path.exists(all_samples_fp)
+
+    with open(all_samples_fp) as f:
+        f.readline()
+        f.readline()  # Headers
+        assert (
+            f.readline().strip()
+            == "2\t200.0\tk__Bacteria; p__; c__; o__; f__; g__; s__"
+        )
