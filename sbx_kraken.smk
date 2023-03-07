@@ -33,6 +33,8 @@ rule kraken2_classify_report:
     params:
         db=Cfg["sbx_kraken"]["kraken_db_fp"],
         paired_end="--paired" if Cfg["all"]["paired_end"] else "",
+    conda:
+        "sbx_kraken_env.yml"
     threads: 8
     shell:
         """
