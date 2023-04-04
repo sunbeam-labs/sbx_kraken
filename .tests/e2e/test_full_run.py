@@ -1,68 +1,102 @@
 import os
+import pytest
 import shutil
 import subprocess as sp
-import tarfile
+import sys
 import tempfile
-import unittest
-import wget
 
-class FullRunTests(unittest.TestCase):
-    def setUp(self) -> None:
-        self.temp_dir = tempfile.mkdtemp()
 
-        self.db_fp = os.path.join(self.temp_dir, "viral-db/")
-        viral_db_url = "https://genome-idx.s3.amazonaws.com/kraken/k2_viral_20220908.tar.gz"
-        wget.download(viral_db_url, out=self.db_fp)
-        tar = tarfile.open(self.db_fp, "r:gz")
-        tar.extractall(path=self.db_fp)
-        tar.close()
+@pytest.fixture
+def setup():
+    temp_dir = tempfile.mkdtemp()
 
-        self.reads_fp = ".tests/data/reads/"
+    reads_fp = os.path.abspath(".tests/data/reads/")
+    hosts_fp = os.path.abspath(".tests/data/hosts/")
+    db_fp = os.path.abspath(".tests/data/db/")
 
-        self.project_dir = os.path.join(self.temp_dir, "project/")
+    project_dir = os.path.join(temp_dir, "project/")
 
-        sp.check_output([
-            "sunbeam",
-            "init",
-            "--data_fp",
-            self.reads_fp,
-            self.project_dir
-        ])
+    sp.check_output(["sunbeam", "init", "--data_fp", reads_fp, project_dir])
 
-        self.config_fp = os.path.join(self.project_dir, "sunbeam_config.yml")
+    config_fp = os.path.join(project_dir, "sunbeam_config.yml")
 
-        sp.check_output([
+    config_str = f"sbx_kraken: {{kraken_db_fp: {db_fp}}}"
+    sp.check_output(
+        [
             "sunbeam",
             "config",
             "modify",
             "-i",
-            "-f", f"{self.config_fp}"
-            "-s", f"'sbx_kraken: {{kraken_db_fp: {self.db_fp}}}'"
-        ])
+            "-s",
+            f"{config_str}",
+            f"{config_fp}",
+        ]
+    )
 
-        self.output_fp = os.path.join(self.project_dir, "sunbeam_output")
-        #shutil.copytree(".tests/data/sunbeam_output", self.output_fp)
-
-        self.all_samples_fp = os.path.join(self.output_fp, "classify/kraken/all_samples.tsv")
-    
-    def tearDown(self):
-        shutil.rmtree(self.temp_dir)
-    
-    def test_full_run(self):
-        # Run the test job.
-        sp.check_output([
+    config_str = f"qc: {{host_fp: {hosts_fp}}}"
+    sp.check_output(
+        [
             "sunbeam",
-            "run",
-             "--profile", 
-            self.project_dir,
-            "all_classify",
-            "--directory",
-            self.temp_dir,
-        ])
+            "config",
+            "modify",
+            "-i",
+            "-s",
+            f"{config_str}",
+            f"{config_fp}",
+        ]
+    )
 
-        # Check output
-        self.assertTrue(os.path.exists(self.all_samples_fp))
-        with open(self.all_ptr_fp) as f:
-            self.assertEqual(next(f), "\tTEST0\tTEST1\tTEST2\tTEST3\tTEST4\n")
-            for val in next(f).split("\t")[1:]:
-                self.assertEqual(round(float(val)), 3)
+    yield temp_dir, project_dir
+
+    shutil.rmtree(temp_dir)
+
+
+@pytest.fixture
+def run_sunbeam(setup):
+    temp_dir, project_dir = setup
+
+    output_fp = os.path.join(project_dir, "sunbeam_output")
+
+    try:
+        # Run the test job
+        sp.check_output(
+            [
+                "sunbeam",
+                "run",
+                "--conda-frontend",
+                "conda",
+                "--profile",
+                project_dir,
+                "all_classify",
+                "--directory",
+                temp_dir,
+            ]
+        )
+    except sp.CalledProcessError as e:
+        shutil.copytree(os.path.join(output_fp, "logs/"), "logs/")
+        shutil.copytree(os.path.join(project_dir, "stats/"), "stats/")
+        sys.exit(e)
+
+    shutil.copytree(os.path.join(output_fp, "logs/"), "logs/")
+    shutil.copytree(os.path.join(project_dir, "stats/"), "stats/")
+
+    all_samples_fp = os.path.join(output_fp, "classify/kraken/all_samples.tsv")
+
+    benchmarks_fp = os.path.join(project_dir, "stats/")
+
+    yield all_samples_fp, benchmarks_fp
+
+
+def test_full_run(run_sunbeam):
+    all_samples_fp, benchmarks_fp = run_sunbeam
+
+    # Check output
+    assert os.path.exists(all_samples_fp)
+
+    with open(all_samples_fp) as f:
+        f.readline()
+        f.readline()  # Headers
+        assert (
+            f.readline().strip()
+            == "2\t200.0\tk__Bacteria; p__; c__; o__; f__; g__; s__"
+        )

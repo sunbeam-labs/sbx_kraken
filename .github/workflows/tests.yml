@@ -1,8 +1,10 @@
-name: CI
+name: Tests
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ master, main ]
+  push:
+    branches: [ master, main ]
   schedule:
     - cron: "0 13 * * 1"
 
@@ -13,12 +15,22 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: Test with Sunbeam
         uses: sunbeam-labs/sbx_test_action@v0
         with:
           sunbeam-version: 'dev'
+          install-options: '-m'
           extension-name: 'sunbeam-labs/sbx_kraken'
           extension-branch-name: ${{ github.head_ref }}
-          test-directory: '.tests/e2e/'
+          
+      - name: Dump Logs
+        shell: bash
+        if: always()
+        run: tail -n +1 logs/*
+      
+      - name: Dump Stats
+        shell: bash
+        if: always()
+        run: cat stats/*

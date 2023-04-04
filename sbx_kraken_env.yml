@@ -1,7 +1,8 @@
+name: sbx_kraken
 channels:
-  - conda-forge
+  - bioconda
 dependencies:
   - biom-format
-  - python>=3 # biom-format
+  - kraken2
   - pip:
     - git+http://github.com/smdabdoub/kraken-biom.git
