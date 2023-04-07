@@ -38,12 +38,16 @@ rule kraken2_classify_report:
     threads: 8
     shell:
         """
-        kraken2 --gzip-compressed \
-                --db {params.db} \
-                --report {output.report} \
-                --output {output.raw} \
-                {params.paired_end} {input} \
-                2>&1 | tee {log}
+        if [ -s {input[0]} ]; then
+            kraken2 --gzip-compressed \
+                    --db {params.db} \
+                    --report {output.report} \
+                    --output {output.raw} \
+                    {params.paired_end} {input} \
+                    2>&1 | tee {log}
+        else
+            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__"
+        fi
         """
 
 
