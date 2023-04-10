@@ -46,7 +46,7 @@ rule kraken2_classify_report:
                     {params.paired_end} {input} \
                     2>&1 | tee {log}
         else
-            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__"
+            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" > {output.report}
         fi
         """
 
