@@ -13,24 +13,24 @@ def not_empty():
 
 if not_empty():
     args = [
-            "kraken2",
-            "--gzip-compressed",
-            "--db",
-            f"{snakemake.params.db}",
-            "--report",
-            f"{snakemake.output.report}",
-            "--output",
-            f"{snakemake.output.raw}",
-            f"{snakemake.params.paired_end}",
-        ]
+        "kraken2",
+        "--gzip-compressed",
+        "--db",
+        f"{snakemake.params.db}",
+        "--report",
+        f"{snakemake.output.report}",
+        "--output",
+        f"{snakemake.output.raw}",
+        f"{snakemake.params.paired_end}",
+    ]
     [args.append(x) for x in snakemake.input]
-    output = sp.check_output(
-        args
-    )
+    output = sp.check_output(args)
 
     with open(snakemake.log[0], "wb") as f:
         f.write(output)
 else:
-    with open(snakemake.log[0], "w") as f_log, open(snakemake.output.report, "w") as f_out:
+    with open(snakemake.log[0], "w") as f_log, open(
+        snakemake.output.report, "w"
+    ) as f_out:
         f_log.write("Empty reads files")
         f_out.write("0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__")
