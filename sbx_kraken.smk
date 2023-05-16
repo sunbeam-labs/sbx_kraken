@@ -36,20 +36,8 @@ rule kraken2_classify_report:
     conda:
         "sbx_kraken_env.yml"
     threads: 8
-    shell:
-        """
-        if LC_ALL=C gzip -l {input} | awk 'NR==2 {exit($2!=0)}'; then
-            echo "Empty reads files" > {log}
-            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" > {output.report}
-        else
-            kraken2 --gzip-compressed \
-                    --db {params.db} \
-                    --report {output.report} \
-                    --output {output.raw} \
-                    {params.paired_end} {input} \
-                    2>&1 | tee {log}
-        fi
-        """
+    script:
+        "scripts/kraken2_classify_report.py"
 
 
 rule kraken2_biom:
