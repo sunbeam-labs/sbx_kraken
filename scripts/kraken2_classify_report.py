@@ -1,6 +1,6 @@
 import gzip
 import subprocess as sp
-
+from pathlib import Path
 
 def not_empty():
     with gzip.open(snakemake.input[0], "rb") as f:
@@ -34,3 +34,4 @@ else:
     ) as f_out:
         f_log.write("Empty reads files")
         f_out.write("0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__")
+    Path(snakemake.output.raw).touch()
