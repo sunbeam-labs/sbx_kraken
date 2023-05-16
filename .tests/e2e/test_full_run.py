@@ -96,8 +96,10 @@ def test_full_run(run_sunbeam):
     with open(all_samples_fp) as f:
         f.readline()
         f.readline()  # Headers
+        lines = f.readlines()
+        print(lines)
         assert (
-            any(["2\t200.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" in x.strip() for x in f.readlines()])
+            any(["2\t200.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" in x.strip() for x in lines])
         )
 
     with open(os.path.join(output_fp, "logs/kraken2_classify_report_EMPTY.log")) as f:
