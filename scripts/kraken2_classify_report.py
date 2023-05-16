@@ -12,8 +12,7 @@ def not_empty():
 
 
 if not_empty():
-    output = sp.check_output(
-        [
+    args = [
             "kraken2",
             "--gzip-compressed",
             "--db",
@@ -23,8 +22,10 @@ if not_empty():
             "--output",
             f"{snakemake.output.raw}",
             f"{snakemake.params.paired_end}",
-            f"{snakemake.input}",
         ]
+    [args.append(x) for x in snakemake.input]
+    output = sp.check_output(
+        args
     )
 
     with open(snakemake.log, "wb") as f:
