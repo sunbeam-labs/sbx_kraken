@@ -28,9 +28,9 @@ if not_empty():
         args
     )
 
-    with open(snakemake.log, "wb") as f:
+    with open(snakemake.log[0], "wb") as f:
         f.write(output)
 else:
-    with open(snakemake.log, "w") as f_log, open(snakemake.output.report, "w") as f_out:
+    with open(snakemake.log[0], "w") as f_log, open(snakemake.output.report, "w") as f_out:
         f_log.write("Empty reads files")
         f_out.write("0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__")
