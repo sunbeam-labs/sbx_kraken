@@ -21,17 +21,13 @@ def parse_kraken(kraken_file):
     dic_kraken = {}
 
     with open(kraken_file) as f:
-
         for line in f:
-
             if (
                 line[0] == "C"
             ):  # if first character is 'C', then this is a comment line and can be skipped.
-
                 continue
 
             else:  # otherwise, this is a data line and should be parsed.
-
                 row = re.split(
                     "\t|\n", line
                 )  # split the line into its components using tab or newline as delimiter.
@@ -47,7 +43,6 @@ def parse_kraken(kraken_file):
                 if (
                     sample_id not in dic_kraken
                 ):  # if this is the first time seeing this sample id...
-
                     dic_kraken[
                         sample_id
                     ] = {}  # create a new dictionary entry for this sample id...
@@ -57,11 +52,9 @@ def parse_kraken(kraken_file):
                     ] = 1  # and initialize count for this taxon to 1 (since we've seen it once).
 
                 else:  # otherwise, we've already seen this sample id before...
-
                     if (
                         taxon not in dic_kraken[sample_id]
                     ):  # if we haven't seen this particular taxon before...
-
                         dic_kraken[sample_id][
                             taxon
                         ] = 1  # initialize count for that particular taxon to 1 (since we've seen it once).
@@ -136,10 +129,10 @@ def makeTableFromKrakOutAndTaxDict(dKrakOut, dTaxDict):
 # Function to convert biom files to tsv files.
 import skbio as skb
 
+
 # Input: biom file
 # Output: tsv file with the following columns: OTU ID, Kingdom, Phylum, Class, Order, Family, Genus, Species
 def biom_to_tsv_skbio(biom_file, tsv_file):
-
     table = skb.Table.read(biom_file)
 
     table.to_tsv(tsv_file)
