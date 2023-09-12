@@ -38,16 +38,16 @@ rule kraken2_classify_report:
     threads: 8
     shell:
         """
-        if [ -s {input[0]} ]; then
-            kraken2 --gzip-compressed \
+		if LC_ALL=C gzip -l {input[0]} | awk 'NR==2 {exit($2!=0)}'; then
+            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" > {output.report}
+		else
+			kraken2 --gzip-compressed \
                     --db {params.db} \
                     --report {output.report} \
                     --output {output.raw} \
                     {params.paired_end} {input} \
                     2>&1 | tee {log}
-        else
-            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" > {output.report}
-        fi
+		fi
         """
 
 
