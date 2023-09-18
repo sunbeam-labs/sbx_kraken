@@ -36,8 +36,20 @@ rule kraken2_classify_report:
     conda:
         "sbx_kraken_env.yml"
     threads: 8
-    script:
-        "scripts/kraken2_classify_report.py"
+    shell:
+        """
+		if LC_ALL=C gzip -l {input[0]} | awk 'NR==2 {{exit($2!=0)}}'; then
+            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" > {output.report} && \
+            echo "C\tA\t1\t136|136\t1:102 |:| 1:102" > {output.raw}
+		else
+            kraken2 --gzip-compressed \
+                    --db {params.db} \
+                    --report {output.report} \
+                    --output {output.raw} \
+                    {params.paired_end} {input} \
+                    2>&1 | tee {log}
+		fi
+        """
 
 
 rule kraken2_biom:
