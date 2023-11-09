@@ -105,5 +105,5 @@ def test_full_run(run_sunbeam):
             ]
         )
 
-    with open(os.path.join(output_fp, "kraken/EMPTY-taxa.tsv")) as f:
+    with open(os.path.join(output_fp, "classify/kraken/EMPTY-taxa.tsv")) as f:
         assert f.readline() == "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__"
