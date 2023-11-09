@@ -2,6 +2,7 @@ import gzip
 import subprocess as sp
 from pathlib import Path
 
+
 def not_empty():
     with gzip.open(snakemake.input[0], "rb") as f:
         try:
