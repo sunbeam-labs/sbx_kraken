@@ -34,7 +34,7 @@ rule kraken2_classify_report:
         db=Cfg["sbx_kraken"]["kraken_db_fp"],
         paired_end="--paired" if Cfg["all"]["paired_end"] else "",
     conda:
-        "sbx_kraken_env.yml"
+        "envs/sbx_kraken_env.yml"
     threads: 8
     shell:
         """
@@ -62,7 +62,7 @@ rule kraken2_biom:
     log:
         LOG_FP / "kraken2_biom.log",
     conda:
-        "sbx_kraken_env.yml"
+        "envs/sbx_kraken_env.yml"
     shell:
         """
         kraken-biom --max D -o {output} {input} 2>&1 | tee {log}
@@ -79,7 +79,7 @@ rule classic_k2_biom:
     log:
         LOG_FP / "classic_k2_biom.log",
     conda:
-        "sbx_kraken_env.yml"
+        "envs/sbx_kraken_env.yml"
     # script:
     #    "biom_to_tsv.py"
     shell:
