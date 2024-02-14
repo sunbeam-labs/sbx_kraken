@@ -65,7 +65,7 @@ def write_kraken2_tsv_summary(
         assert len(otu_set) == 1, "OTU IDs do not match for lowest rank lines"
         otu_id = list(otu_set)[0]
 
-        # Write the line
+        # Prepare the line
         output_line = f"{otu_id}\t"
         for n, r in next_lines.items():
             if r and r["taxon_id"] == otu_id:
@@ -73,6 +73,9 @@ def write_kraken2_tsv_summary(
                 next_lines[n] = next(reports[report_names.index(n)], {})
             else:
                 output_line += "0\t"
+
+        # Write the line
+        file_handler.write(output_line + "\n")
 
 
 report_names = [Path(x).stem for x in snakemake.input.reports]
