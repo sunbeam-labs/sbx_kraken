@@ -3,22 +3,20 @@ import pytest
 import shutil
 import subprocess as sp
 import sys
-import tempfile
+from pathlib import Path
 
 
 @pytest.fixture
-def setup():
-    temp_dir = tempfile.mkdtemp()
+def setup(tmpdir):
+    reads_fp = Path(".tests/data/reads/")
+    hosts_fp = Path(".tests/data/hosts/")
+    db_fp = Path(".tests/data/db/")
 
-    reads_fp = os.path.abspath(".tests/data/reads/")
-    hosts_fp = os.path.abspath(".tests/data/hosts/")
-    db_fp = os.path.abspath(".tests/data/db/")
-
-    project_dir = os.path.join(temp_dir, "project/")
+    project_dir = tmpdir / "project"
 
     sp.check_output(["sunbeam", "init", "--data_fp", reads_fp, project_dir])
 
-    config_fp = os.path.join(project_dir, "sunbeam_config.yml")
+    config_fp = project_dir / "sunbeam_config.yml"
 
     config_str = f"sbx_kraken: {{kraken_db_fp: {db_fp}}}"
     sp.check_output(
@@ -46,14 +44,14 @@ def setup():
         ]
     )
 
-    yield temp_dir, project_dir
+    yield tmpdir, project_dir
 
-    shutil.rmtree(temp_dir)
+    shutil.rmtree(tmpdir)
 
 
 @pytest.fixture
 def run_sunbeam(setup):
-    temp_dir, project_dir = setup
+    tmpdir, project_dir = setup
 
     output_fp = os.path.join(project_dir, "sunbeam_output")
 
@@ -69,7 +67,7 @@ def run_sunbeam(setup):
                 project_dir,
                 "all_classify",
                 "--directory",
-                temp_dir,
+                tmpdir,
             ]
         )
     except sp.CalledProcessError as e:
