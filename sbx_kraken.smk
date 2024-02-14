@@ -54,7 +54,9 @@ rule kraken2_classify_report:
 
 rule summarize_kraken2_reports:
     input:
-        reports=expand(CLASSIFY_FP / "kraken" / "{sample}-taxa.tsv", sample=Samples.keys()),
+        reports=expand(
+            CLASSIFY_FP / "kraken" / "{sample}-taxa.tsv", sample=Samples.keys()
+        ),
     output:
         summary=CLASSIFY_FP / "kraken" / "all_samples.tsv",
     benchmark:
@@ -63,4 +65,3 @@ rule summarize_kraken2_reports:
         LOG_FP / "summarize_kraken2_reports.log",
     script:
         "scripts/summarize_kraken2_reports.py"
-        
