@@ -52,40 +52,15 @@ rule kraken2_classify_report:
         """
 
 
-rule kraken2_biom:
+rule summarize_kraken2_reports:
     input:
-        expand(CLASSIFY_FP / "kraken" / "{sample}-taxa.tsv", sample=Samples.keys()),
+        reports=expand(CLASSIFY_FP / "kraken" / "{sample}-taxa.tsv", sample=Samples.keys()),
     output:
-        CLASSIFY_FP / "kraken" / "all_samples.biom",
+        summary=CLASSIFY_FP / "kraken" / "all_samples.tsv",
     benchmark:
-        BENCHMARK_FP / "kraken2_biom.tsv"
+        BENCHMARK_FP / "summarize_kraken2_reports.tsv"
     log:
-        LOG_FP / "kraken2_biom.log",
-    conda:
-        "envs/sbx_kraken_env.yml"
-    shell:
-        """
-        kraken-biom --max D -o {output} {input} 2>&1 | tee {log}
-        """
-
-
-rule classic_k2_biom:
-    input:
-        CLASSIFY_FP / "kraken" / "all_samples.biom",
-    output:
-        CLASSIFY_FP / "kraken" / "all_samples.tsv",
-    benchmark:
-        BENCHMARK_FP / "classic_k2_biom.tsv"
-    log:
-        LOG_FP / "classic_k2_biom.log",
-    conda:
-        "envs/sbx_kraken_env.yml"
-    # script:
-    #    "biom_to_tsv.py"
-    shell:
-        """
-        biom convert -i {input} -o {output} \
-        --to-tsv --header-key=taxonomy --process-obs-metadata=taxonomy \
-        --output-metadata-id="Consensus Lineage" \
-        2>&1 | tee {log}
-        """
+        LOG_FP / "summarize_kraken2_reports.log",
+    script:
+        "scripts/summarize_kraken2_reports.py"
+        
