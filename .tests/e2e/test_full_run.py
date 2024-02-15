@@ -94,6 +94,6 @@ def test_full_run(run_sunbeam):
         assert "TEST-taxa" in header_line
         assert "EMPTY-taxa" in header_line
 
-        bacteria_line = f.readline()
-        print(bacteria_line)
-        assert "2\t394.0\t0.0" in bacteria_line
+        lines = f.readlines()
+        print(lines)
+        assert "2\t394\t0\n" in lines
