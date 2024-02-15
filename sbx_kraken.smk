@@ -39,7 +39,7 @@ rule kraken2_classify_report:
     shell:
         """
         if LC_ALL=C gzip -l {input[0]} | awk 'NR==2 {{exit($2!=0)}}'; then
-            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" > {output.report} && \
+            echo "100.00\t0\t0\tR\t1\troot" > {output.report} && \
             echo "C\tA\t1\t136|136\t1:102 |:| 1:102" > {output.raw}
         else
             kraken2 --gzip-compressed \
