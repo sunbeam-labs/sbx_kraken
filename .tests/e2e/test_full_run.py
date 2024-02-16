@@ -91,6 +91,7 @@ def test_full_run(run_sunbeam):
 
     with open(all_samples_fp) as f:
         header_line = f.readline()
+        print(f"Header line: {header_line}")
         assert "TEST-taxa" in header_line
         assert "EMPTY-taxa" in header_line
         test_index = header_line.split("\t").index("TEST-taxa")
