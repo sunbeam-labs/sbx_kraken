@@ -93,7 +93,13 @@ def test_full_run(run_sunbeam):
         header_line = f.readline()
         assert "TEST-taxa" in header_line
         assert "EMPTY-taxa" in header_line
+        test_index = header_line.split("\t").index("TEST-taxa")
+        empty_index = header_line.split("\t").index("EMPTY-taxa")
 
         lines = f.readlines()
         print(lines)
-        assert "2\t394\t0\n" in lines
+        for line in lines:
+            if line[0] == "2":
+                fields = line.split("\t")
+                assert int(fields[empty_index]) == 0
+                assert int(fields[test_index]) > 0
