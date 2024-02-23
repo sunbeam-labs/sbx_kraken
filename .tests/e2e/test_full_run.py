@@ -94,7 +94,7 @@ def test_full_run(run_sunbeam):
         print(f"Header line: {header_line}")
         assert "TEST-taxa" in header_line
         assert "EMPTY-taxa" in header_line
-        assert "Consenus Lineage" in header_line
+        assert "Consensus Lineage" in header_line
         test_index = header_line.split("\t").index("TEST-taxa")
         empty_index = header_line.split("\t").index("EMPTY-taxa")
 

@@ -24,8 +24,6 @@ def test_write_kraken2_tsv_summary(tmpdir, reports):
     report_counts, consensus_lineages = create_kraken2_tsv_report(
         [parse_kraken2_tsv_report(open(x)) for x in reports], report_names
     )
-    print(report_counts)
-    # print(consensus_lineages)
 
     summary_fp = tmpdir / "summary.tsv"
     summary_fp = report_fp / "summary.tsv"
@@ -33,18 +31,21 @@ def test_write_kraken2_tsv_summary(tmpdir, reports):
 
     with open(summary_fp, "r") as f:
         summary = f.readlines()
+        summary = {x.split("\t")[0]: x.split("\t")[1:] for x in summary}
         report_generators = [parse_kraken2_tsv_report(open(x)) for x in reports]
 
-        assert (
-            summary[0].strip()
-            == "#OTU ID\t" + "\t".join(report_names) + "\tConsensus Lineage"
-        )
-        assert (
-            summary[1].strip()
-            == "2\t"
-            + "\t".join([str(next(x)["fragments_assigned"]) for x in report_generators])
-            + "\tk__Bacteria; p__; c__; o__; f__; g__; s__"
-        )
+        assert summary["#OTU ID"] == report_names + ["Consensus Lineage\n"]
+        assert summary["2"] == [
+            str(next(x)["fragments_assigned"]) for x in report_generators
+        ] + ["k__Bacteria; p__; c__; o__; f__; g__; s__\n"]
+
+        for rg in report_generators:
+            for line in rg:
+                assert str(line["fragments_assigned"]) in summary[str(line["taxon_id"])]
+                assert (
+                    str(line["scientific_name"]).lstrip()
+                    in summary[str(line["taxon_id"])][-1]
+                )
 
 
 def test_parse_kraken2_tsv_report(reports):
