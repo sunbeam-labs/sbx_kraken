@@ -4,7 +4,6 @@
 
 <!-- badges: start -->
 [![Tests](https://github.com/sunbeam-labs/sbx_kraken/actions/workflows/tests.yml/badge.svg)](https://github.com/sunbeam-labs/sbx_kraken/actions/workflows/tests.yml)
-[![Super-Linter](https://github.com/sunbeam-labs/sbx_kraken/actions/workflows/linter.yml/badge.svg)](https://github.com/sunbeam-labs/sbx_kraken/actions/workflows/linter.yml)
 <!-- badges: end -->
 
 A [Sunbeam](https://github.com/sunbeam-labs/sunbeam) extension for taxonomic assignment of reads to databases using Kraken. You can get pre-built kraken databases at the [Kraken homepage](http://ccb.jhu.edu/software/kraken/) or build your own then specify the path to your database in the config.

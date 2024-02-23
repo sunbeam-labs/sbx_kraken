@@ -3,22 +3,20 @@ import pytest
 import shutil
 import subprocess as sp
 import sys
-import tempfile
+from pathlib import Path
 
 
 @pytest.fixture
-def setup():
-    temp_dir = tempfile.mkdtemp()
+def setup(tmpdir):
+    reads_fp = Path(".tests/data/reads/").resolve()
+    hosts_fp = Path(".tests/data/hosts/").resolve()
+    db_fp = Path(".tests/data/db/").resolve()
 
-    reads_fp = os.path.abspath(".tests/data/reads/")
-    hosts_fp = os.path.abspath(".tests/data/hosts/")
-    db_fp = os.path.abspath(".tests/data/db/")
-
-    project_dir = os.path.join(temp_dir, "project/")
+    project_dir = tmpdir / "project"
 
     sp.check_output(["sunbeam", "init", "--data_fp", reads_fp, project_dir])
 
-    config_fp = os.path.join(project_dir, "sunbeam_config.yml")
+    config_fp = project_dir / "sunbeam_config.yml"
 
     config_str = f"sbx_kraken: {{kraken_db_fp: {db_fp}}}"
     sp.check_output(
@@ -46,16 +44,14 @@ def setup():
         ]
     )
 
-    yield temp_dir, project_dir
-
-    shutil.rmtree(temp_dir)
+    yield tmpdir, project_dir
 
 
 @pytest.fixture
 def run_sunbeam(setup):
-    temp_dir, project_dir = setup
+    tmpdir, project_dir = setup
 
-    output_fp = os.path.join(project_dir, "sunbeam_output")
+    output_fp = project_dir / "sunbeam_output"
 
     try:
         # Run the test job
@@ -69,18 +65,18 @@ def run_sunbeam(setup):
                 project_dir,
                 "all_classify",
                 "--directory",
-                temp_dir,
+                tmpdir,
             ]
         )
     except sp.CalledProcessError as e:
-        shutil.copytree(os.path.join(output_fp, "logs/"), "logs/")
-        shutil.copytree(os.path.join(project_dir, "stats/"), "stats/")
+        shutil.copytree(output_fp / "logs", "logs/")
+        shutil.copytree(project_dir / "stats", "stats/")
         sys.exit(e)
 
-    shutil.copytree(os.path.join(output_fp, "logs/"), "logs/")
-    shutil.copytree(os.path.join(project_dir, "stats/"), "stats/")
+    shutil.copytree(output_fp / "logs", "logs/")
+    shutil.copytree(project_dir / "stats", "stats/")
 
-    benchmarks_fp = os.path.join(project_dir, "stats/")
+    benchmarks_fp = project_dir / "stats"
 
     yield output_fp, benchmarks_fp
 
@@ -88,19 +84,24 @@ def run_sunbeam(setup):
 def test_full_run(run_sunbeam):
     output_fp, benchmarks_fp = run_sunbeam
 
-    all_samples_fp = os.path.join(output_fp, "classify/kraken/all_samples.tsv")
+    all_samples_fp = output_fp / "classify" / "kraken" / "all_samples.tsv"
 
     # Check output
-    assert os.path.exists(all_samples_fp)
+    assert all_samples_fp.exists()
 
     with open(all_samples_fp) as f:
-        f.readline()
-        f.readline()  # Headers
+        header_line = f.readline()
+        print(f"Header line: {header_line}")
+        assert "TEST-taxa" in header_line
+        assert "EMPTY-taxa" in header_line
+        assert "Consensus Lineage" in header_line
+        test_index = header_line.split("\t").index("TEST-taxa")
+        empty_index = header_line.split("\t").index("EMPTY-taxa")
+
         lines = f.readlines()
         print(lines)
-        assert (
-            any(["2\t0.0\t200.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" in x.strip() for x in lines])
-        )
-
-    with open(os.path.join(output_fp, "logs/kraken2_classify_report_EMPTY.log")) as f:
-        assert f.readline() == "Empty reads files"
+        for line in lines:
+            if line[0] == "2":
+                fields = line.split("\t")
+                assert int(fields[empty_index]) == 0
+                assert int(fields[test_index]) > 0

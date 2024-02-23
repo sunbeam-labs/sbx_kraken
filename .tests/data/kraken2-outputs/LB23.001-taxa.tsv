@@ -1,0 +1,100 @@
+ 71.05	9017207	9017207	U	0	unclassified
+ 28.95	3673316	2874	R	1	root
+ 28.90	3668085	6633	R1	131567	  cellular organisms
+ 28.42	3606713	164888	D	2	    Bacteria
+ 18.94	2404081	38180	D1	1783272	      Terrabacteria group
+ 15.68	1989491	37750	P	1239	        Firmicutes
+  7.20	913989	1873	C	186801	          Clostridia
+  7.13	905134	47124	O	186802	            Clostridiales
+  3.39	430295	2654	F	31979	              Clostridiaceae
+  3.28	416638	66209	G	1485	                Clostridium
+  0.91	115046	115046	S	1492	                  Clostridium butyricum
+  0.32	40706	40239	S	1502	                  Clostridium perfringens
+  0.00	295	295	S1	883064	                    Clostridium perfringens F262
+  0.00	145	145	S1	195102	                    Clostridium perfringens str. 13
+  0.00	27	27	S1	195103	                    Clostridium perfringens ATCC 13124
+  0.22	27508	514	G1	2614128	                  unclassified Clostridium
+  0.07	9113	9113	S	2320868	                    Clostridium sp. CT4
+  0.06	7781	7781	S	641107	                    Clostridium sp. DL-VIII
+  0.02	2218	2218	S	1042156	                    Clostridium sp. SY8519
+  0.01	1759	1759	S	2587161	                    Clostridium sp. SYSU GA15002T
+  0.01	1559	1559	S	2507159	                    Clostridium sp. JN-9
+  0.01	1470	1470	S	2483110	                    Clostridium sp. JN-1
+  0.01	1107	1107	S	2068654	                    Clostridium sp. JN500901
+  0.01	776	776	S	1702238	                    Clostridium sp. MF28
+  0.00	619	619	S	2212991	                    Clostridium sp. AWRP
+  0.00	592	592	S	755731	                    Clostridium sp. BNL1100
+  0.21	26487	20129	S	1561	                  Clostridium baratii
+  0.05	6358	6358	S1	1415775	                    Clostridium baratii str. Sullivan
+  0.18	22899	16425	S	1491	                  Clostridium botulinum
+  0.02	2840	0	S1	36827	                    Clostridium botulinum B
+  0.02	2764	2764	S2	935198	                      Clostridium botulinum B str. Eklund 17B (NRP)
+  0.00	72	0	S2	591968	                      Clostridium botulinum B1
+  0.00	72	72	S3	498213	                        Clostridium botulinum B1 str. Okra
+  0.00	4	4	S2	515621	                      Clostridium botulinum Ba4 str. 657
+  0.01	1740	1740	S1	1415774	                    Clostridium botulinum 202F
+  0.01	1472	1472	S1	929506	                    Clostridium botulinum BKT015925
+  0.00	190	0	S1	36826	                    Clostridium botulinum A
+  0.00	185	185	S2	498214	                      Clostridium botulinum A3 str. Loch Maree
+  0.00	5	5	S2	536232	                      Clostridium botulinum A2 str. Kyoto
+  0.00	55	55	S1	941968	                    Clostridium botulinum H04402 065
+  0.00	54	54	S1	36831	                    Clostridium botulinum F
+  0.00	47	0	S1	36830	                    Clostridium botulinum E
+  0.00	47	47	S2	508767	                      Clostridium botulinum E3 str. Alaska E43
+  0.00	46	46	S1	1408284	                    Clostridium botulinum Prevot_594
+  0.00	30	30	S1	1408283	                    Clostridium botulinum CDC_1436
+  0.11	13881	13881	S	394958	                  Clostridium taeniosporum
+  0.11	13858	13854	S	46867	                  Clostridium chauvoei
+  0.00	4	4	S1	1351755	                    Clostridium chauvoei JF4335
+  0.10	12648	12645	S	169679	                  Clostridium saccharobutylicum
+  0.00	3	3	S1	1345695	                    Clostridium saccharobutylicum DSM 13864
+  0.10	12401	12401	S	1216932	                  Clostridium bornimense
+  0.09	11852	11852	S	1504	                  Clostridium septicum
+  0.08	9836	7979	S	36745	                  Clostridium saccharoperbutylacetonicum
+  0.01	1857	0	S1	1335640	                    Clostridium saccharoperbutylacetonicum N1-4
+  0.01	1857	1857	S2	931276	                      Clostridium saccharoperbutylacetonicum N1-4(HMT)
+  0.06	7578	7578	S	182773	                  Clostridium isatidis
+  0.06	7468	6017	S	1520	                  Clostridium beijerinckii
+  0.01	825	825	S1	290402	                    Clostridium beijerinckii NCIMB 8052
+  0.00	626	626	S1	1428454	                    Clostridium beijerinckii NRRL B-598
+  0.03	3866	3866	S	29341	                  Clostridium argentinense
+  0.03	3380	1100	S	1542	                  Clostridium novyi
+  0.02	2280	2280	S1	386415	                    Clostridium novyi NT
+  0.03	3218	1781	S	1501	                  Clostridium pasteurianum
+  0.01	1437	1437	S1	86416	                    Clostridium pasteurianum BC1
+  0.02	2890	0	S	1493	                  Clostridium cellulovorans
+  0.02	2890	2890	S1	573061	                    Clostridium cellulovorans 743B
+  0.02	2646	2631	S	1488	                  Clostridium acetobutylicum
+  0.00	15	15	S1	272562	                    Clostridium acetobutylicum ATCC 824
+  0.02	2120	2120	S	1534	                  Clostridium kluyveri
+  0.01	1711	0	S	238834	                  Clostridium estertheticum
+  0.01	1711	1711	S1	1552	                    Clostridium estertheticum subsp. estertheticum
+  0.01	1691	1118	S	1513	                  Clostridium tetani
+  0.00	373	373	S1	1231072	                    Clostridium tetani 12124569
+  0.00	200	200	S1	212717	                    Clostridium tetani E88
+  0.01	1389	1389	S	1494	                  Clostridium cochlearium
+  0.01	1367	0	S	217159	                  Clostridium carboxidivorans
+  0.01	1367	1367	S1	536227	                    Clostridium carboxidivorans P7
+  0.01	1154	1154	S	1519	                  Clostridium tyrobutyricum
+  0.01	765	765	S	332101	                  Clostridium drakei
+  0.00	602	602	S	1548	                  Clostridium scatologenes
+  0.00	536	536	S	1497	                  Clostridium formicaceticum
+  0.00	395	395	S	84022	                  Clostridium aceticum
+  0.00	198	198	S	223919	                  Clostridium diolis
+  0.00	138	0	S	84023	                  Clostridium autoethanogenum
+  0.00	138	138	S1	1341692	                    Clostridium autoethanogenum DSM 10061
+  0.00	117	0	S	1538	                  Clostridium ljungdahlii
+  0.00	117	117	S1	748727	                    Clostridium ljungdahlii DSM 13528
+  0.00	78	78	S	1509	                  Clostridium sporogenes
+  0.02	2818	0	G	1649459	                Hungatella
+  0.02	2818	0	S	154046	                  Hungatella hathewayi
+  0.02	2818	2818	S1	742737	                    Hungatella hathewayi WAL-18680
+  0.01	1860	0	G	1981033	                Mordavella
+  0.01	1860	0	G1	2622214	                  unclassified Mordavella
+  0.01	1860	1860	S	2086584	                    Mordavella sp. Marseille-P3756
+  0.01	1375	0	F1	189971	                unclassified Clostridiaceae
+  0.01	1375	1375	S	2082193	                  Clostridiaceae bacterium 14S0207
+  0.01	1192	0	G	1769729	                Hathewaya
+  0.01	1192	1192	S	1498	                  Hathewaya histolytica
+  0.01	961	0	G	1848399	                Crassaminicella
+  0.01	961	0	G1	2633479	                  unclassified Crassaminicella

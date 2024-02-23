@@ -1,0 +1,5 @@
+name: sbx_kraken
+channels:
+  - bioconda
+dependencies:
+  - kraken2
