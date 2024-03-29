@@ -1,0 +1,78 @@
+ 61.11	22	22	U	0	unclassified
+ 38.89	14	0	R	1	root
+ 38.89	14	0	R1	131567	  cellular organisms
+ 36.11	13	0	D	2	    Bacteria
+ 16.67	6	0	P	1224	      Proteobacteria
+ 11.11	4	0	C	28216	        Betaproteobacteria
+ 11.11	4	0	O	80840	          Burkholderiales
+ 11.11	4	0	F	119060	            Burkholderiaceae
+ 11.11	4	0	G	48736	              Ralstonia
+ 11.11	4	0	S	329	                Ralstonia pickettii
+ 11.11	4	4	S1	402626	                  Ralstonia pickettii 12J
+  5.56	2	0	P1	68525	        delta/epsilon subdivisions
+  5.56	2	0	C	28221	          Deltaproteobacteria
+  5.56	2	0	O	213115	            Desulfovibrionales
+  5.56	2	0	F	194924	              Desulfovibrionaceae
+  5.56	2	0	G	872	                Desulfovibrio
+  5.56	2	2	S	901	                  Desulfovibrio piger
+ 11.11	4	0	D1	1783270	      FCB group
+ 11.11	4	0	D2	68336	        Bacteroidetes/Chlorobi group
+ 11.11	4	1	P	976	          Bacteroidetes
+  8.33	3	0	C	200643	            Bacteroidia
+  8.33	3	0	O	171549	              Bacteroidales
+  5.56	2	0	F	815	                Bacteroidaceae
+  5.56	2	0	G	816	                  Bacteroides
+  5.56	2	2	S	817	                    Bacteroides fragilis
+  2.78	1	0	F	171552	                Prevotellaceae
+  2.78	1	0	G	838	                  Prevotella
+  2.78	1	0	S	52227	                    Prevotella dentalis
+  2.78	1	1	S1	908937	                      Prevotella dentalis DSM 3688
+  8.33	3	0	D1	1783272	      Terrabacteria group
+  5.56	2	0	P	201174	        Actinobacteria
+  2.78	1	0	C	1760	          Actinobacteria
+  2.78	1	0	O	85010	            Pseudonocardiales
+  2.78	1	0	F	2070	              Pseudonocardiaceae
+  2.78	1	0	G	1847	                Pseudonocardia
+  2.78	1	0	G1	2619320	                  unclassified Pseudonocardia
+  2.78	1	1	S	1690815	                    Pseudonocardia sp. HH130630-07
+  2.78	1	0	C	84998	          Coriobacteriia
+  2.78	1	0	O	84999	            Coriobacteriales
+  2.78	1	0	F	84107	              Coriobacteriaceae
+  2.78	1	0	F1	84113	                unclassified Coriobacteriaceae
+  2.78	1	1	S	1531429	                  Coriobacteriaceae bacterium 68-1-3
+  2.78	1	0	P	1239	        Firmicutes
+  2.78	1	0	C	909932	          Negativicutes
+  2.78	1	0	O	909929	            Selenomonadales
+  2.78	1	0	F	1843491	              Selenomonadaceae
+  2.78	1	0	G	970	                Selenomonas
+  2.78	1	1	G1	2637378	                  unclassified Selenomonas
+  2.78	1	0	D	2759	    Eukaryota
+  2.78	1	0	D1	33154	      Opisthokonta
+  2.78	1	0	K	33208	        Metazoa
+  2.78	1	0	K1	6072	          Eumetazoa
+  2.78	1	0	K2	33213	            Bilateria
+  2.78	1	0	K3	33511	              Deuterostomia
+  2.78	1	0	P	7711	                Chordata
+  2.78	1	0	P1	89593	                  Craniata
+  2.78	1	0	P2	7742	                    Vertebrata
+  2.78	1	0	P3	7776	                      Gnathostomata
+  2.78	1	0	P4	117570	                        Teleostomi
+  2.78	1	0	P5	117571	                          Euteleostomi
+  2.78	1	0	P6	8287	                            Sarcopterygii
+  2.78	1	0	P7	1338369	                              Dipnotetrapodomorpha
+  2.78	1	0	P8	32523	                                Tetrapoda
+  2.78	1	0	P9	32524	                                  Amniota
+  2.78	1	0	C	40674	                                    Mammalia
+  2.78	1	0	C1	32525	                                      Theria
+  2.78	1	0	C2	9347	                                        Eutheria
+  2.78	1	0	C3	1437010	                                          Boreoeutheria
+  2.78	1	0	C4	314146	                                            Euarchontoglires
+  2.78	1	0	O	9443	                                              Primates
+  2.78	1	0	O1	376913	                                                Haplorrhini
+  2.78	1	0	O2	314293	                                                  Simiiformes
+  2.78	1	0	O3	9526	                                                    Catarrhini
+  2.78	1	0	O4	314295	                                                      Hominoidea
+  2.78	1	0	F	9604	                                                        Hominidae
+  2.78	1	0	F1	207598	                                                          Homininae
+  2.78	1	0	G	9605	                                                            Homo
+  2.78	1	1	S	9606	                                                              Homo sapiens

@@ -1,0 +1,163 @@
+#OTU ID	AP159-taxa	LB23.001-taxa	DNAfreewater1.20230906-taxa	Consensus Lineage
+2	88192	164888	0	k__Bacteria; p__; c__; o__; f__; g__; s__
+1239	22054	37750	0	k__Bacteria; p__Firmicutes; c__; o__; f__; g__; s__
+186801	1049	1873	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__; f__; g__; s__
+186802	25214	47124	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__; g__; s__
+186803	10794	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__; s__
+830	3052	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Butyrivibrio; s__
+831	38775	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Butyrivibrio; s__Butyrivibrio fibrisolvens
+185008	18745	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Butyrivibrio; s__Butyrivibrio hungatei
+43305	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Butyrivibrio; s__Butyrivibrio proteoclasticus
+1506553	2541	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__
+1871021	5155	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnoclostridium phocaeense
+1834196	4029	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnoclostridium sp. YL32
+29347	3157	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__[Clostridium] scindens
+208479	3052	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__[Clostridium] bolteae
+89153	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__[Clostridium] hylemonae
+84030	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__[Clostridium] saccharolyticum
+29370	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__[Clostridium] sphenoides
+66219	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnoclostridium phytofermentans
+2109691	7159	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnospiraceae bacterium GAM79
+2594789	2671	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnospiraceae bacterium KGMB03038
+2109690	2444	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnospiraceae bacterium Choco86
+2093742	1519	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnospiraceae bacterium KM106-2
+712991	1080	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnospiraceae bacterium oral taxon 500
+1898203	1067	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoclostridium; s__Lachnospiraceae bacterium
+572511	3548	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Blautia; s__
+2479767	4743	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Blautia; s__Blautia sp. SC05B48
+1912897	1893	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Blautia; s__Blautia sp. N6H1-15
+1796616	4	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Blautia; s__Blautia sp. YL58
+33035	2937	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Blautia; s__Blautia producta
+33038	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Blautia; s__[Ruminococcus] gnavus
+1532	1	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Blautia; s__Blautia coccoides
+46205	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Pseudobutyrivibrio; s__
+185007	12045	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Pseudobutyrivibrio; s__Pseudobutyrivibrio xylanivorans
+841	243	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Roseburia; s__
+301301	4771	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Roseburia; s__Roseburia hominis
+166486	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Roseburia; s__Roseburia intestinalis
+207244	45	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerostipes; s__
+1229621	1930	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerostipes; s__Anaerostipes rhamnosivorans
+649756	1895	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerostipes; s__Anaerostipes hadrus
+2569097	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerobutyricum; s__
+39488	3304	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerobutyricum; s__Anaerobutyricum hallii
+1164882	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoanaerobaculum; s__
+617123	1675	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Lachnoanaerobaculum; s__Lachnoanaerobaculum umeaense
+1843210	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerocolumna; s__
+2696063	1476	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerocolumna; s__Anaerocolumna sp. CBA3638
+1663717	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Herbinix; s__
+1679721	963	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Herbinix; s__Herbinix luporum
+2039240	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerotignum; s__
+28446	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Anaerotignum; s__Anaerotignum propionicum
+698776	370	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Cellulosilyticum; s__
+2497860	209	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Cellulosilyticum; s__Cellulosilyticum sp. WCF-2
+29360	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Lachnospiraceae; g__Cellulosilyticum; s__Cellulosilyticum lentocellum
+541000	1367	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__; s__
+1263	957	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruminococcus; s__
+2564099	25311	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruminococcus; s__Ruminococcus sp. JE7A12
+1264	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruminococcus; s__Ruminococcus albus
+1161942	5656	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruminococcus; s__Ruminococcus champanellensis
+1160721	4094	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruminococcus; s__Ruminococcus bicirculans
+216851	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Faecalibacterium; s__
+853	15611	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Faecalibacterium; s__Faecalibacterium prausnitzii
+946234	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Flavonifractor; s__
+292800	5466	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Flavonifractor; s__Flavonifractor plautii
+1905344	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruthenibacterium; s__
+1550024	3543	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruthenibacterium; s__Ruthenibacterium lactatiformans
+1572656	1903	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruthenibacterium; s__Ruminococcaceae bacterium CPB6
+29343	1227	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ruthenibacterium; s__[Clostridium] cellulosi
+1738645	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Caproiciproducens; s__
+2507162	2901	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Caproiciproducens; s__Caproiciproducens sp. NJN-50
+253238	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ethanoligenens; s__
+253239	2193	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Ruminococcaceae; g__Ethanoligenens; s__Ethanoligenens harbinense
+31979	663	2654	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__; s__
+1485	2303	66209	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__
+1491	18094	16425	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium botulinum
+1492	0	115046	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium butyricum
+1502	0	40239	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium perfringens
+2320868	0	9113	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. CT4
+641107	0	7781	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. DL-VIII
+1042156	0	2218	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. SY8519
+2587161	0	1759	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. SYSU GA15002T
+2507159	0	1559	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. JN-9
+2483110	0	1470	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. JN-1
+2068654	0	1107	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. JN500901
+1702238	0	776	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. MF28
+2212991	0	619	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. AWRP
+755731	0	592	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sp. BNL1100
+1561	0	20129	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium baratii
+394958	0	13881	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium taeniosporum
+46867	0	13854	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium chauvoei
+169679	0	12645	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium saccharobutylicum
+1216932	0	12401	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium bornimense
+1504	0	11852	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium septicum
+36745	0	7979	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium saccharoperbutylacetonicum
+182773	0	7578	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium isatidis
+1520	0	6017	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium beijerinckii
+29341	0	3866	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium argentinense
+1542	0	1100	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium novyi
+1501	0	1781	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium pasteurianum
+1493	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium cellulovorans
+1488	0	2631	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium acetobutylicum
+1534	0	2120	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium kluyveri
+238834	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium estertheticum
+1513	0	1118	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium tetani
+1494	0	1389	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium cochlearium
+217159	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium carboxidivorans
+1519	0	1154	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium tyrobutyricum
+332101	0	765	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium drakei
+1548	0	602	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium scatologenes
+1497	0	536	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium formicaceticum
+84022	0	395	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium aceticum
+223919	0	198	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium diolis
+84023	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium autoethanogenum
+1538	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium ljungdahlii
+1509	0	78	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Clostridium; s__Clostridium sporogenes
+1649459	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Hungatella; s__
+154046	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Hungatella; s__Hungatella hathewayi
+1981033	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Mordavella; s__
+2086584	0	1860	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Mordavella; s__Mordavella sp. Marseille-P3756
+2082193	0	1375	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Mordavella; s__Clostridiaceae bacterium 14S0207
+1769729	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Hathewaya; s__
+1498	0	1192	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Hathewaya; s__Hathewaya histolytica
+1848399	0	0	0	k__Bacteria; p__Firmicutes; c__Clostridia; o__Clostridiales; f__Clostridiaceae; g__Crassaminicella; s__
+1224	0	0	0	k__Bacteria; p__Proteobacteria; c__; o__; f__; g__; s__
+28216	0	0	0	k__Bacteria; p__Proteobacteria; c__Betaproteobacteria; o__; f__; g__; s__
+80840	0	0	0	k__Bacteria; p__Proteobacteria; c__Betaproteobacteria; o__Burkholderiales; f__; g__; s__
+119060	0	0	0	k__Bacteria; p__Proteobacteria; c__Betaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__; s__
+48736	0	0	0	k__Bacteria; p__Proteobacteria; c__Betaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Ralstonia; s__
+329	0	0	0	k__Bacteria; p__Proteobacteria; c__Betaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Ralstonia; s__Ralstonia pickettii
+28221	0	0	0	k__Bacteria; p__Proteobacteria; c__Deltaproteobacteria; o__; f__; g__; s__
+213115	0	0	0	k__Bacteria; p__Proteobacteria; c__Deltaproteobacteria; o__Desulfovibrionales; f__; g__; s__
+194924	0	0	0	k__Bacteria; p__Proteobacteria; c__Deltaproteobacteria; o__Desulfovibrionales; f__Desulfovibrionaceae; g__; s__
+872	0	0	0	k__Bacteria; p__Proteobacteria; c__Deltaproteobacteria; o__Desulfovibrionales; f__Desulfovibrionaceae; g__Desulfovibrio; s__
+901	0	0	2	k__Bacteria; p__Proteobacteria; c__Deltaproteobacteria; o__Desulfovibrionales; f__Desulfovibrionaceae; g__Desulfovibrio; s__Desulfovibrio piger
+976	0	0	1	k__Bacteria; p__Bacteroidetes; c__; o__; f__; g__; s__
+200643	0	0	0	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__; f__; g__; s__
+171549	0	0	0	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__; g__; s__
+815	0	0	0	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Bacteroidaceae; g__; s__
+816	0	0	0	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Bacteroidaceae; g__Bacteroides; s__
+817	0	0	2	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Bacteroidaceae; g__Bacteroides; s__Bacteroides fragilis
+171552	0	0	0	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__; s__
+838	0	0	0	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__
+52227	0	0	0	k__Bacteria; p__Bacteroidetes; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__Prevotella dentalis
+201174	0	0	0	k__Bacteria; p__Actinobacteria; c__; o__; f__; g__; s__
+1760	0	0	0	k__Bacteria; p__Actinobacteria; c__Actinobacteria; o__; f__; g__; s__
+85010	0	0	0	k__Bacteria; p__Actinobacteria; c__Actinobacteria; o__Pseudonocardiales; f__; g__; s__
+2070	0	0	0	k__Bacteria; p__Actinobacteria; c__Actinobacteria; o__Pseudonocardiales; f__Pseudonocardiaceae; g__; s__
+1847	0	0	0	k__Bacteria; p__Actinobacteria; c__Actinobacteria; o__Pseudonocardiales; f__Pseudonocardiaceae; g__Pseudonocardia; s__
+1690815	0	0	1	k__Bacteria; p__Actinobacteria; c__Actinobacteria; o__Pseudonocardiales; f__Pseudonocardiaceae; g__Pseudonocardia; s__Pseudonocardia sp. HH130630-07
+84998	0	0	0	k__Bacteria; p__Actinobacteria; c__Coriobacteriia; o__; f__; g__; s__
+84999	0	0	0	k__Bacteria; p__Actinobacteria; c__Coriobacteriia; o__Coriobacteriales; f__; g__; s__
+84107	0	0	0	k__Bacteria; p__Actinobacteria; c__Coriobacteriia; o__Coriobacteriales; f__Coriobacteriaceae; g__; s__
+1531429	0	0	1	k__Bacteria; p__Actinobacteria; c__Coriobacteriia; o__Coriobacteriales; f__Coriobacteriaceae; g__; s__Coriobacteriaceae bacterium 68-1-3
+909932	0	0	0	k__Bacteria; p__Firmicutes; c__Negativicutes; o__; f__; g__; s__
+909929	0	0	0	k__Bacteria; p__Firmicutes; c__Negativicutes; o__Selenomonadales; f__; g__; s__
+1843491	0	0	0	k__Bacteria; p__Firmicutes; c__Negativicutes; o__Selenomonadales; f__Selenomonadaceae; g__; s__
+970	0	0	0	k__Bacteria; p__Firmicutes; c__Negativicutes; o__Selenomonadales; f__Selenomonadaceae; g__Selenomonas; s__
+2759	0	0	0	k__Eukaryota; p__; c__; o__; f__; g__; s__
+7711	0	0	0	k__Eukaryota; p__Chordata; c__; o__; f__; g__; s__
+40674	0	0	0	k__Eukaryota; p__Chordata; c__Mammalia; o__; f__; g__; s__
+9443	0	0	0	k__Eukaryota; p__Chordata; c__Mammalia; o__Primates; f__; g__; s__
+9604	0	0	0	k__Eukaryota; p__Chordata; c__Mammalia; o__Primates; f__Hominidae; g__; s__
+9605	0	0	0	k__Eukaryota; p__Chordata; c__Mammalia; o__Primates; f__Hominidae; g__Homo; s__
+9606	0	0	1	k__Eukaryota; p__Chordata; c__Mammalia; o__Primates; f__Hominidae; g__Homo; s__Homo sapiens

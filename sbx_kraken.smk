@@ -34,58 +34,34 @@ rule kraken2_classify_report:
         db=Cfg["sbx_kraken"]["kraken_db_fp"],
         paired_end="--paired" if Cfg["all"]["paired_end"] else "",
     conda:
-        "sbx_kraken_env.yml"
+        "envs/sbx_kraken_env.yml"
     threads: 8
     shell:
         """
-		if LC_ALL=C gzip -l {input[0]} | awk 'NR==2 {{exit($2!=0)}}'; then
-            echo "0\t0.0\tk__Bacteria; p__; c__; o__; f__; g__; s__" > {output.report} && \
+        if LC_ALL=C gzip -l {input[0]} | awk 'NR==2 {{exit($2!=0)}}'; then
+            echo "100.00\t0\t0\tR\t1\troot" > {output.report} && \
             echo "C\tA\t1\t136|136\t1:102 |:| 1:102" > {output.raw}
-		else
+        else
             kraken2 --gzip-compressed \
                     --db {params.db} \
                     --report {output.report} \
                     --output {output.raw} \
                     {params.paired_end} {input} \
                     2>&1 | tee {log}
-		fi
+        fi
         """
 
 
-rule kraken2_biom:
+rule summarize_kraken2_reports:
     input:
-        expand(CLASSIFY_FP / "kraken" / "{sample}-taxa.tsv", sample=Samples.keys()),
+        reports=expand(
+            CLASSIFY_FP / "kraken" / "{sample}-taxa.tsv", sample=Samples.keys()
+        ),
     output:
-        CLASSIFY_FP / "kraken" / "all_samples.biom",
+        summary=CLASSIFY_FP / "kraken" / "all_samples.tsv",
     benchmark:
-        BENCHMARK_FP / "kraken2_biom.tsv"
+        BENCHMARK_FP / "summarize_kraken2_reports.tsv"
     log:
-        LOG_FP / "kraken2_biom.log",
-    conda:
-        "sbx_kraken_env.yml"
-    shell:
-        """
-        kraken-biom --max D -o {output} {input} 2>&1 | tee {log}
-        """
-
-
-rule classic_k2_biom:
-    input:
-        CLASSIFY_FP / "kraken" / "all_samples.biom",
-    output:
-        CLASSIFY_FP / "kraken" / "all_samples.tsv",
-    benchmark:
-        BENCHMARK_FP / "classic_k2_biom.tsv"
-    log:
-        LOG_FP / "classic_k2_biom.log",
-    conda:
-        "sbx_kraken_env.yml"
-    # script:
-    #    "biom_to_tsv.py"
-    shell:
-        """
-        biom convert -i {input} -o {output} \
-        --to-tsv --header-key=taxonomy --process-obs-metadata=taxonomy \
-        --output-metadata-id="Consensus Lineage" \
-        2>&1 | tee {log}
-        """
+        LOG_FP / "summarize_kraken2_reports.log",
+    script:
+        "scripts/summarize_kraken2_reports.py"
