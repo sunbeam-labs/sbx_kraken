@@ -5,6 +5,18 @@
 TARGET_CLASSIFY = [CLASSIFY_FP / "kraken" / "all_samples.tsv"]
 
 
+def get_kraken_ext_path() -> Path:
+    ext_path = Path(sunbeam_dir) / "extensions" / "sbx_kraken"
+    if ext_path.exists():
+        return ext_path
+    raise Error(
+        "Filepath for kraken not found, are you sure it's installed under extensions/sbx_kraken?"
+    )
+
+
+SBX_KRAKEN_VERSION = open(get_kraken_ext_path() / "VERSION").read().strip()
+
+
 try:
     BENCHMARK_FP
 except NameError:
@@ -13,6 +25,10 @@ try:
     LOG_FP
 except NameError:
     LOG_FP = output_subdir(Cfg, "logs")
+
+
+localrules:
+    all_classify,
 
 
 rule all_classify:
@@ -35,6 +51,8 @@ rule kraken2_classify_report:
         paired_end="--paired" if Cfg["all"]["paired_end"] else "",
     conda:
         "envs/sbx_kraken_env.yml"
+    container:
+        f"docker://sunbeamlabs/sbx_kraken:{SBX_KRAKEN_VERSION}"
     threads: 8
     shell:
         """

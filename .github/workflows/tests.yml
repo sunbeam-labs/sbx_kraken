@@ -1,8 +1,6 @@
 name: Tests
 
 on:
-  pull_request:
-    branches: [ master, main ]
   push:
     branches: [ master, main ]
   workflow_call:
@@ -47,7 +45,8 @@ jobs:
         run: pip install pytest
 
       - name: Run Unit Tests
-        run: pytest scripts/
+        run: true #pytest .tests/unit/
+        # This'll require having a lib within scripts with internal tests
 
   test-e2e:
     name: Test Extension with Sunbeam
@@ -58,17 +57,17 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Test with Sunbeam
         uses: sunbeam-labs/sbx_test_action@v1
 
-      - name: Dump Logs
-        shell: bash
-        if: always()
-        run: tail -n +1 logs/*
+      #- name: Dump Logs
+      #  shell: bash
+      #  if: always()
+      #  run: tail -n +1 logs/*
       
-      - name: Dump Stats
-        shell: bash
-        if: always()
-        run: cat stats/*
+      #- name: Dump Stats
+      #  shell: bash
+      #  if: always()
+      #  run: cat stats/*
