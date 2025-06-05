@@ -85,9 +85,12 @@ def write_kraken2_tsv_summary(
     file_handler: TextIO,
 ) -> None:
     # Write header
-    file_handler.write(
-        f"#OTU ID\t{'\t'.join([k for k, _ in report_counts.items()])}\tConsensus Lineage\n"
+    header = (
+        "#OTU ID\t"
+        + "\t".join([k for k, _ in report_counts.items()])
+        + "\tConsensus Lineage\n"
     )
+    file_handler.write(header)
 
     # Loop through consensus lineages
     for taxon_id, lineage in consensus_lineages.items():
