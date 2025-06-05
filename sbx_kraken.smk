@@ -1,39 +1,18 @@
-# -*- mode: Snakemake -*-
-#
-# Rules for running Kraken
-
-TARGET_CLASSIFY = [CLASSIFY_FP / "kraken" / "all_samples.tsv"]
-
-
-def get_kraken_ext_path() -> Path:
-    ext_path = Path(sunbeam_dir) / "extensions" / "sbx_kraken"
-    if ext_path.exists():
-        return ext_path
-    raise Error(
-        "Filepath for kraken not found, are you sure it's installed under extensions/sbx_kraken?"
-    )
-
-
-SBX_KRAKEN_VERSION = open(get_kraken_ext_path() / "VERSION").read().strip()
-
-
 try:
-    BENCHMARK_FP
+    SBX_KRAKEN_VERSION = get_ext_version("sbx_kraken")
 except NameError:
-    BENCHMARK_FP = output_subdir(Cfg, "benchmarks")
-try:
-    LOG_FP
-except NameError:
-    LOG_FP = output_subdir(Cfg, "logs")
+    # For backwards compatibility with older versions of Sunbeam
+    SBX_KRAKEN_VERSION = "0.0.0"
+CLASSIFY_FP = output_subdir(Cfg, "classify")
 
 
 localrules:
-    all_classify,
+    all_kraken,
 
 
-rule all_classify:
+rule all_kraken:
     input:
-        TARGET_CLASSIFY,
+        CLASSIFY_FP / "kraken" / "all_samples.tsv",
 
 
 rule kraken2_classify_report:

@@ -2,17 +2,16 @@ import os
 import pytest
 import shutil
 import subprocess as sp
-import sys
 from pathlib import Path
 
 
 @pytest.fixture
-def setup(tmpdir):
+def setup(tmp_path):
     reads_fp = Path(".tests/data/reads/").resolve()
-    hosts_fp = Path(".tests/data/hosts/").resolve()
     db_fp = Path(".tests/data/db/").resolve()
+    hosts_fp = Path(".tests/data/hosts/").resolve()
 
-    project_dir = tmpdir / "project"
+    project_dir = tmp_path / "project/"
 
     sp.check_output(["sunbeam", "init", "--data_fp", reads_fp, project_dir])
 
@@ -23,9 +22,7 @@ def setup(tmpdir):
         [
             "sunbeam",
             "config",
-            "modify",
-            "-i",
-            "-s",
+            "--modify",
             f"{config_str}",
             f"{config_fp}",
         ]
@@ -36,53 +33,58 @@ def setup(tmpdir):
         [
             "sunbeam",
             "config",
-            "modify",
-            "-i",
-            "-s",
+            "--modify",
             f"{config_str}",
             f"{config_fp}",
         ]
     )
 
-    yield tmpdir, project_dir
+    yield tmp_path, project_dir
+
+    shutil.rmtree(tmp_path)
 
 
 @pytest.fixture
 def run_sunbeam(setup):
-    tmpdir, project_dir = setup
+    tmp_path, project_dir = setup
+    output_fp = project_dir / "sunbeam_output"
+    log_fp = output_fp / "logs"
+    stats_fp = project_dir / "stats"
+
+    sbx_proc = sp.run(
+        [
+            "sunbeam",
+            "run",
+            "--profile",
+            project_dir,
+            "all_kraken",
+            "--directory",
+            tmp_path,
+        ],
+        capture_output=True,
+        text=True,
+    )
+
+    print("STDOUT: ", sbx_proc.stdout)
+    print("STDERR: ", sbx_proc.stderr)
+
+    if os.getenv("GITHUB_ACTIONS") == "true":
+        try:
+            shutil.copytree(log_fp, "logs/")
+            shutil.copytree(stats_fp, "stats/")
+        except FileNotFoundError:
+            print("No logs or stats directory found.")
 
     output_fp = project_dir / "sunbeam_output"
+    benchmarks_fp = project_dir / "stats/"
 
-    try:
-        # Run the test job
-        sp.check_output(
-            [
-                "sunbeam",
-                "run",
-                "--conda-frontend",
-                "conda",
-                "--profile",
-                project_dir,
-                "all_classify",
-                "--directory",
-                tmpdir,
-            ]
-        )
-    except sp.CalledProcessError as e:
-        shutil.copytree(output_fp / "logs", "logs/")
-        shutil.copytree(project_dir / "stats", "stats/")
-        sys.exit(e)
-
-    shutil.copytree(output_fp / "logs", "logs/")
-    shutil.copytree(project_dir / "stats", "stats/")
-
-    benchmarks_fp = project_dir / "stats"
-
-    yield output_fp, benchmarks_fp
+    yield output_fp, benchmarks_fp, sbx_proc
 
 
 def test_full_run(run_sunbeam):
-    output_fp, benchmarks_fp = run_sunbeam
+    output_fp, benchmarks_fp, proc = run_sunbeam
+
+    assert proc.returncode == 0, f"Sunbeam run failed with error: {proc.stderr}"
 
     all_samples_fp = output_fp / "classify" / "kraken" / "all_samples.tsv"
 
