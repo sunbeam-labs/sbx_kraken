@@ -36,15 +36,17 @@ rule kraken2_classify_report:
     shell:
         """
         if LC_ALL=C gzip -l {input[0]} | awk 'NR==2 {{exit($2!=0)}}'; then
-            echo "100.00\t0\t0\tR\t1\troot" > {output.report} && \
+            echo "Empty input, filling with dummy data" > {log}
+            echo "100.00\t0\t0\tR\t1\troot" > {output.report}
             echo "C\tA\t1\t136|136\t1:102 |:| 1:102" > {output.raw}
         else
-            kraken2 --gzip-compressed \
-                    --db {params.db} \
-                    --report {output.report} \
-                    --output {output.raw} \
-                    {params.paired_end} {input} \
-                    2>&1 | tee {log}
+            kraken2 \
+            --gzip-compressed \
+            --db {params.db} \
+            --report {output.report} \
+            --output {output.raw} \
+            {params.paired_end} {input} \
+            > {log} 2>&1
         fi
         """
 
