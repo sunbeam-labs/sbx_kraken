@@ -19,7 +19,7 @@ jobs:
 
       - name: Local unit tests
         run: |
-          pip install pytest ete3
+          pip install pytest ete3 pandas numpy
           pytest scripts/
       
       - name: Sunbeam tests
