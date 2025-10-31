@@ -3,7 +3,7 @@ import pytest
 import sys
 import tempfile
 from pathlib import Path
-from .ete import (
+from scripts.summarize_kraken2_reports import (
     allowed_ranks,
     get_consensus_lineage,
     parse_kraken,

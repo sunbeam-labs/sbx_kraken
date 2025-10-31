@@ -16,6 +16,11 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Local unit tests
+        run: |
+          pip install pytest ete3
+          pytest scripts/
       
       - name: Sunbeam tests
         uses: sunbeam-labs/sbx_test_action@v1
