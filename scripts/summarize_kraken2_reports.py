@@ -46,22 +46,26 @@ def parse_kraken(fp: Path) -> dict[str, str]:
 
 
 def get_consensus_lineage(taxon_id: str, ncbi: NCBITaxa) -> str:
-    lineage = ncbi.get_lineage(taxon_id)
-    names = ncbi.get_taxid_translator(lineage)
-    lineage_ranks = ncbi.get_rank(lineage)
+    try:
+        lineage = ncbi.get_lineage(taxon_id)
+        names = ncbi.get_taxid_translator(lineage)
+        lineage_ranks = ncbi.get_rank(lineage)
 
-    if not lineage:
-        raise ValueError(f"Taxon ID {taxon_id} not found in NCBI taxonomy database.")
+        if not lineage:
+            raise ValueError(f"Taxon ID {taxon_id} not found in NCBI taxonomy database.")
 
-    lineage_parts = []
-    for taxid in lineage:
-        rank = lineage_ranks.get(taxid)
-        if rank in ncbi_rank_to_prefix:
-            prefix = ncbi_rank_to_prefix[rank]
-            name = names.get(taxid, "unknown")
-            lineage_parts.append(f"{prefix}{name}")
+        lineage_parts = []
+        for taxid in lineage:
+            rank = lineage_ranks.get(taxid)
+            if rank in ncbi_rank_to_prefix:
+                prefix = ncbi_rank_to_prefix[rank]
+                name = names.get(taxid, "unknown")
+                lineage_parts.append(f"{prefix}{name}")
 
-    return "; ".join(lineage_parts)
+        return "; ".join(lineage_parts)
+    except Exception as e:
+        print(f"Error retrieving lineage for taxon ID {taxon_id}: {e}")
+        return "unknown"
 
 
 def update_ncbi_taxonomy() -> NCBITaxa:
