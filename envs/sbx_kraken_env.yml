@@ -3,5 +3,7 @@ channels:
   - bioconda
   - conda-forge
 dependencies:
-  - ete3
   - kraken2
+  - python
+  - pip
+  - ete3
