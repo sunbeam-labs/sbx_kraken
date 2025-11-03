@@ -1,3 +1,4 @@
+import contextlib
 import csv
 import os
 import sys
@@ -116,15 +117,12 @@ if "snakemake" in globals():
 
     with open(log, "w") as log_f:
         try:
-            sys.stdout = log_f
-            sys.stderr = log_f
-            main(reports, summary)
+            with contextlib.redirect_stdout(log_f), contextlib.redirect_stderr(log_f):
+                main(reports, summary)
         except Exception as e:
             log_f.write(f"Error: {e}\n")
             raise
-
-
-if __name__ == "__main__":
+elif __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
             "Usage: python summarize_kraken2_reports.py <output_summary.tsv> <report1.tsv> [<report2.tsv> ...]"
