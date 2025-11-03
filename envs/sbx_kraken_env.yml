@@ -5,5 +5,5 @@ channels:
 dependencies:
   - kraken2
   - python
-  - pip
-  - ete3
+  - pip:
+    - ete3
