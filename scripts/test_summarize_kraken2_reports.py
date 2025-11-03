@@ -37,5 +37,6 @@ def test_get_consensus_lineage():
     lineage = get_consensus_lineage("562", ncbi)
     expected = "k__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Enterobacterales; f__Enterobacteriaceae; g__Escherichia; s__Escherichia coli"
     assert lineage == expected, f"Expected: {expected}, Got: {lineage}"
-    with pytest.raises(ValueError):
-        get_consensus_lineage("000000", ncbi)  # Non-existent taxon ID
+    assert (
+        get_consensus_lineage("000000", ncbi) == "unknown"
+    ), "Unknown taxon ID should return 'unknown'"

@@ -52,7 +52,9 @@ def get_consensus_lineage(taxon_id: str, ncbi: NCBITaxa) -> str:
         lineage_ranks = ncbi.get_rank(lineage)
 
         if not lineage:
-            raise ValueError(f"Taxon ID {taxon_id} not found in NCBI taxonomy database.")
+            raise ValueError(
+                f"Taxon ID {taxon_id} not found in NCBI taxonomy database."
+            )
 
         lineage_parts = []
         for taxid in lineage:
