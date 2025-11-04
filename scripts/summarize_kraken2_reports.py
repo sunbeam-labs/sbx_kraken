@@ -69,6 +69,10 @@ def get_consensus_lineage(taxon_id: str, ncbi: NCBITaxa) -> str:
             name = lineage_rank_to_name.get(rank, "")
             lineage_parts.append(f"{prefix}{name}")
 
+        # Remove trailing empty ranks
+        while lineage_parts and lineage_parts[-1] in ncbi_rank_to_prefix.values():
+            lineage_parts.pop()
+
         return "; ".join(lineage_parts)
     except Exception as e:
         print(f"Error retrieving lineage for taxon ID {taxon_id}: {e}")
@@ -127,6 +131,15 @@ if "snakemake" in globals():
             log_f.write(f"Error: {e}\n")
             raise
 elif __name__ == "__main__":
+    ncbi = update_ncbi_taxonomy()
+    lineage = ncbi.get_lineage("577468")
+    names = ncbi.get_taxid_translator(lineage)
+    lineage_ranks = ncbi.get_rank(lineage)
+    print(lineage)
+    print(names)
+    print(lineage_ranks)
+    print(get_consensus_lineage("577468", ncbi))
+
     if len(sys.argv) < 3:
         print(
             "Usage: python summarize_kraken2_reports.py <output_summary.tsv> <report1.tsv> [<report2.tsv> ...]"
