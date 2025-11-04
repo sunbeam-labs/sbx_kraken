@@ -57,13 +57,17 @@ def get_consensus_lineage(taxon_id: str, ncbi: NCBITaxa) -> str:
                 f"Taxon ID {taxon_id} not found in NCBI taxonomy database."
             )
 
-        lineage_parts = []
+        lineage_rank_to_name: dict[str, str] = {}
         for taxid in lineage:
             rank = lineage_ranks.get(taxid)
             if rank in ncbi_rank_to_prefix:
-                prefix = ncbi_rank_to_prefix[rank]
-                name = names.get(taxid, "unknown")
-                lineage_parts.append(f"{prefix}{name}")
+                name = names.get(taxid, "")
+                lineage_rank_to_name[rank] = name
+
+        lineage_parts = []
+        for rank, prefix in ncbi_rank_to_prefix.items():
+            name = lineage_rank_to_name.get(rank, "")
+            lineage_parts.append(f"{prefix}{name}")
 
         return "; ".join(lineage_parts)
     except Exception as e:

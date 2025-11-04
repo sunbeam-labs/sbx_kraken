@@ -40,3 +40,13 @@ def test_get_consensus_lineage():
     assert (
         get_consensus_lineage("000000", ncbi) == "unknown"
     ), "Unknown taxon ID should return 'unknown'"
+
+
+def test_get_consensus_lineage_with_missing_family():
+    ncbi = update_ncbi_taxonomy()
+    lineage = get_consensus_lineage("754249", ncbi)
+    expected = (
+        "k__Bacteria; p__Actinomycetota; c__Actinomycetes; o__Micrococcales; "
+        "f__; g__Luteimicrobium; s__"
+    )
+    assert lineage == expected, f"Expected: {expected}, Got: {lineage}"
