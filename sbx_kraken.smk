@@ -62,5 +62,9 @@ rule summarize_kraken2_reports:
         BENCHMARK_FP / "summarize_kraken2_reports.tsv"
     log:
         LOG_FP / "summarize_kraken2_reports.log",
+    conda:
+        "envs/sbx_kraken_env.yml"
+    container:
+        f"docker://sunbeamlabs/sbx_kraken:{SBX_KRAKEN_VERSION}"
     script:
         "scripts/summarize_kraken2_reports.py"

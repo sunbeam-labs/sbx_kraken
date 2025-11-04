@@ -4,3 +4,5 @@ channels:
   - conda-forge
 dependencies:
   - kraken2
+  - python
+  - ete3
