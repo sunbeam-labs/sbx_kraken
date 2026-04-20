@@ -3,7 +3,7 @@ import pytest
 import sys
 from pathlib import Path
 
-from scripts.summarize_kraken2_reports_f import (
+from scripts.summarize_kraken2_reports import (
     parse_kraken2_tsv_report,
     create_kraken2_tsv_report,
     write_kraken2_tsv_summary,
@@ -52,6 +52,7 @@ def test_parse_kraken2_tsv_report(reports):
     reports, _ = reports
     report = reports[0]
     parsed_report = parse_kraken2_tsv_report(open(report))
+    assert False
 
     assert list(next(parsed_report).keys()) == [
         "percentage",
