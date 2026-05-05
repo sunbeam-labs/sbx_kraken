@@ -13,15 +13,7 @@ localrules:
 rule all_kraken:
     input:
         CLASSIFY_FP / "kraken" / "all_samples.tsv",
-        expand(
-            CLASSIFY_FP / "bracken" / "{sample}-species.tsv",
-            sample=Samples.keys(),
-        ),
-        expand(
-            CLASSIFY_FP / "bracken" / "{sample}-species-k2raw.tsv",
-            sample=Samples.keys(),
-        ),
-
+        CLASSIFY_FP / "bracken" / "all_samples_bracken.tsv",
 
 rule kraken2_classify_report:
     input:
@@ -72,6 +64,22 @@ rule summarize_kraken2_reports:
         LOG_FP / "summarize_kraken2_reports.log",
     script:
         "scripts/summarize_kraken2_reports.py"
+
+
+rule summarize_bracken_reports:
+    input:
+        reports=expand(
+	    CLASSIFY_FP / "bracken" / "{sample}-species-k2raw.tsv", sample=Samples.keys()
+        ),
+    output:
+        summary=CLASSIFY_FP / "bracken" / "all_samples_bracken.tsv",
+    benchmark:
+        BENCHMARK_FP / "summarize_bracken_reports.tsv"
+    log:
+        LOG_FP / "summarize_bracken_reports.log",
+    script:
+        "scripts/summarize_kraken2_reports.py"
+
 
 rule bracken_species:
     input:
