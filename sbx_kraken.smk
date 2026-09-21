@@ -91,13 +91,21 @@ rule bracken_species:
     threads: 1
     shell:
         """
-        bracken \
+        if bracken \
         -i {input} \
         -d {params.db} \
         -o {output.breport} \
         -w {output.kreport} \
         -r {params.readlen} \
-        -l S > {log} 2>&1
+        -l S > {log} 2>&1; then
+            :
+        elif grep -q "no reads found" {log}; then
+            echo "No species-level reads met Bracken's read threshold, writing empty output" >> {log}
+            echo "name\ttaxonomy_id\ttaxonomy_lvl\tkraken_assigned_reads\tadded_reads\tnew_est_reads\tfraction_total_reads" > {output.breport}
+            echo "100.00\t0\t0\tR\t1\troot" > {output.kreport}
+        else
+            exit 1
+        fi
         """
     
 
